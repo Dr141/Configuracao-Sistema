@@ -49,6 +49,30 @@ namespace Configuracao.IO
             }                   
         }
 
+        public void GravarDados(Launcher launcher)
+        {
+            string nomeArquivo = @"Configuracoes.config";
+
+            this.CriarArquivo(nomeArquivo, 0);
+
+            try
+            {
+                XElement XML = XElement.Load(nomeArquivo);
+                XML.Descendants("SqlHost").First().LastAttribute.Value = XAesSimples.Criptografar(launcher.SqlHost);
+                XML.Descendants("SqlDatabase").First().LastAttribute.Value = XAesSimples.Criptografar(launcher.SqlDatabase);
+                XML.Descendants("Usuario").First().LastAttribute.Value = XAesSimples.Criptografar(launcher.Usuario);
+                XML.Descendants("Senha").First().LastAttribute.Value = XAesSimples.Criptografar(launcher.Senha);
+                XML.Descendants("TipoSgbd").First().LastAttribute.Value = XAesSimples.Criptografar(launcher.TipoSgbd);
+                XML.Descendants("AmbienteAtualizacao").First().LastAttribute.Value = XAesSimples.Criptografar(launcher.AmbienteAtualizacao);
+                XML.Save(nomeArquivo);
+                MessageBox.Show("Configuração salva com sucesso.", "Launcher", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         public void GravarDados(CIP cip)
         {
             string nomeArquivo = @"Configuracoes.config";
@@ -171,6 +195,28 @@ namespace Configuracao.IO
             }
         }
 
+        public void GetDados(Launcher launcher)
+        {
+            string nomeArquivo = @"Configuracoes.config";
+
+            this.CriarArquivo(nomeArquivo, 4);
+
+            try
+            {
+                XElement XML = XElement.Load(nomeArquivo);
+
+                launcher.SqlHost = XAesSimples.Decriptografar(XML.Descendants("SqlHost").First().LastAttribute.Value);
+                launcher.Usuario = XAesSimples.Decriptografar(XML.Descendants("Usuario").First().LastAttribute.Value);
+                launcher.Senha = XAesSimples.Decriptografar(XML.Descendants("Senha").First().LastAttribute.Value);
+                launcher.TipoSgbd = XAesSimples.Decriptografar(XML.Descendants("TipoSgbd").First().LastAttribute.Value);
+                launcher.AmbienteAtualizacao = XAesSimples.Decriptografar(XML.Descendants("AmbienteAtualizacao").First().LastAttribute.Value);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
         public void GetDados(CIP cip)
         {
             string nomeArquivo = @"Configuracoes.config";
@@ -259,21 +305,26 @@ namespace Configuracao.IO
         }
 
         public int AmbAtualizacao(string amb)
-        {
-            if (amb == "PREVIEW")
+        {           
+            switch (amb)
             {
-                return 0;
-            }
-            else if(amb == "PRODUCAO")
-            {
-                return 1;
-            }
-            else if(amb == "TESTES")
-            {
-                return 2;
-            }
-
-            return -1;
+                case "PREVIEW":
+                    {
+                        return 0;
+                    }
+                case "PRODUCAO":
+                    {
+                        return 1;
+                    }
+                case "TESTES":
+                    {
+                        return 2;
+                    }
+                default:
+                    {
+                        return 1;
+                    }
+            }            
         }
 
         public int DesabilitarGeracaoDeSelos(string aux)
@@ -284,9 +335,9 @@ namespace Configuracao.IO
                     return 0;
                 case "Não":
                     return 1;
+                default:
+                    return 0;
             }
-
-            return -1;
         }
 
 
@@ -379,6 +430,26 @@ namespace Configuracao.IO
 		                             "</DbProviderFactories>" +
 	                             "</system.data>" +
                                  "</configuration>" 
+                                );
+                            break;
+                        case 4:
+                            xml.LoadXml(
+                                "<?xml version ='1.0' encoding ='utf-8'?>" +
+                                 "<configuration>" +
+                                 "<Launcher>" +
+                                 @" <!--
+                                    Exemplo SqlDatabase:
+                                    Se tipo de SGBD = 0 => D:\Engegraph\DB\Launcher.sdf
+                                    Se tipo de SGBD = 1 => Launcher
+                                    -->" +
+                                 "<SqlHost value='Z6r0Smiwd9llDCMAi2xZdqguevaHISdTBbURXx8it5wOeQt0McTK35q9UNCO+KtmTX4lu9VwmrpvjfoQhST0UKR8i/heklJW7Frbz57IqTw='/>" +
+                                 "<SqlDatabase value='ajtdIiwGXxdecYlsf3eePsxjaTRQYdMw8LRRw09ywXx5TtSTTw/fGgBwrrGTrJTfYIkxTqULZL/jttuTUGU7nNPQlxbgw3N6EWRs0Tcy/SI='/>" +
+                                 "<Usuario value='JS9/xbA+G7VyPoiYslZ+1z2FRbEfTW3uRi+Splv5gF4zp3gLFb4THPwB4JY0wh7NZh3XXFCAcF42ltSBaD60PaPHaXo17SqvyAxSkUhIMvY='/>" +
+                                 "<Senha value='FeMaV+3Z6pqRq80f5TCFXksvG3hf4E/bvF9mJOfNoZZtGyGKr8gHPzinMH3pTVVwpntIP/GNuQk747hoQ80dDTqb+Z0HXm4DHHfSgkkil9c='/>" +
+                                 "<TipoSgbd value='1hhIhpO1lny6EMPMVM/oSUR/DNmkdOrFBuva4rUvCYXCQYryR8ERS3WEOLkQGWPFQ6uU7/O+mcw5DP84WyrVFhrT6wF6dSCgO4v8Xr47ypg='/>" +
+                                 "<AmbienteAtualizacao value='WMYWTHXzgwUqBmKeIfBPIBFKJXiIYO+irLRRRLVXPZJaMfcFhg8ZPPIiD55uvCpeVwsZTIQyNwGGyxE0ljiCYTTe1MdAiFmcpgQWB0ZgLTs=' />" +
+                                 "</Launcher>" +
+                                 "</configuration>"
                                 );
                             break;
                     }
