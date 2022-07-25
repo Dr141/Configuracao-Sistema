@@ -26,6 +26,8 @@ namespace Configuracao
                 Application.Run(new FormSEDIGO());
             else if (File.Exists("Dadp.Servidor.Console.exe"))
                 Application.Run(new FormDADP());
+            else if (File.Exists("Launcher.Console.exe"))
+                Application.Run(new FormLauncher());
         }
     }
 }
