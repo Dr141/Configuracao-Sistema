@@ -15,7 +15,7 @@ namespace Configuracao
     public partial class FormDADP : Form
     {
         DADP dadp = new DADP();
-        Ler_Escrever_Aquivos ler = new Ler_Escrever_Aquivos();
+        ManipularXML ler = new ManipularXML();
         public FormDADP()
         {
             InitializeComponent();

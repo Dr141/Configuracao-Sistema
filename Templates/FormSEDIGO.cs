@@ -1,13 +1,6 @@
 ﻿using Configuracao.IO;
 using Configuracao.Modelos;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Configuracao
@@ -15,7 +8,7 @@ namespace Configuracao
     public partial class FormSEDIGO : Form
     {
         SEDI_GO SEDI = new SEDI_GO();
-        Ler_Escrever_Aquivos ler = new Ler_Escrever_Aquivos();
+        ManipularXML ler = new ManipularXML();
 
         public FormSEDIGO()
         {
@@ -37,7 +30,7 @@ namespace Configuracao
             this.tBHash.Text = SEDI.HashDoCartorio;
             this.cB_TipoConexao.SelectedIndex = int.Parse(SEDI.TipoDeConexao);
             this.cB_Atualizacao.SelectedIndex = ler.AmbAtualizacao(SEDI.AmbienteAtualizacao);
-            this.cBGerarSelos.SelectedIndex = ler.DesabilitarGeracaoDeSelos(SEDI.DesabilitarGeracaoDeSelos);
+            this.cBGerarSelos.SelectedIndex = SEDI.GeraSelo();
         }
 
         private void bttLimpar_Click(object sender, EventArgs e)

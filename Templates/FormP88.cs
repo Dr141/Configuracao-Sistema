@@ -15,7 +15,7 @@ namespace Configuracao
     public partial class FormP88 : Form
     {
         public Provimento88 provimento88 = new Provimento88();
-        public Ler_Escrever_Aquivos ler = new Ler_Escrever_Aquivos();
+        public ManipularXML ler = new ManipularXML();
         public FormP88()
         {
             InitializeComponent();

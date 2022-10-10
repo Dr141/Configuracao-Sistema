@@ -15,7 +15,7 @@ namespace Configuracao
     public partial class FormLauncher : Form
     {
         public Launcher launcher = new Launcher();
-        public Ler_Escrever_Aquivos ler = new Ler_Escrever_Aquivos();
+        public ManipularXML ler = new ManipularXML();
 
         public FormLauncher()
         {
