@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>contexto.ico</ApplicationIcon>
+    <ApplicationIcon>Icos\contexto.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Comum.Utilitarios">
@@ -53,37 +53,38 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormLauncher.cs">
+    <Compile Include="Templates\FormLauncher.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormLauncher.Designer.cs">
+    <Compile Include="Templates\FormLauncher.Designer.cs">
       <DependentUpon>FormLauncher.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormP88.cs">
+    <Compile Include="Templates\FormP88.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormP88.Designer.cs">
+    <Compile Include="Templates\FormP88.Designer.cs">
       <DependentUpon>FormP88.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormCIP.cs">
+    <Compile Include="Templates\FormCIP.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormCIP.Designer.cs">
+    <Compile Include="Templates\FormCIP.Designer.cs">
       <DependentUpon>FormCIP.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormDADP.cs">
+    <Compile Include="Templates\FormDADP.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormDADP.Designer.cs">
+    <Compile Include="Templates\FormDADP.Designer.cs">
       <DependentUpon>FormDADP.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormSEDIGO.cs">
+    <Compile Include="Templates\FormSEDIGO.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormSEDIGO.Designer.cs">
+    <Compile Include="Templates\FormSEDIGO.Designer.cs">
       <DependentUpon>FormSEDIGO.cs</DependentUpon>
     </Compile>
-    <Compile Include="IO\Ler_Escrever_Aquivos.cs" />
+    <Compile Include="IO\ConfiguracaoInicial.cs" />
+    <Compile Include="IO\ManipularXML.cs" />
     <Compile Include="Modelos\CIP.cs" />
     <Compile Include="Modelos\DADP.cs" />
     <Compile Include="Modelos\Launcher.cs" />
@@ -91,19 +92,19 @@
     <Compile Include="Modelos\SEDI_GO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormLauncher.resx">
+    <EmbeddedResource Include="Templates\FormLauncher.resx">
       <DependentUpon>FormLauncher.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormP88.resx">
+    <EmbeddedResource Include="Templates\FormP88.resx">
       <DependentUpon>FormP88.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormCIP.resx">
+    <EmbeddedResource Include="Templates\FormCIP.resx">
       <DependentUpon>FormCIP.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormDADP.resx">
+    <EmbeddedResource Include="Templates\FormDADP.resx">
       <DependentUpon>FormDADP.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormSEDIGO.resx">
+    <EmbeddedResource Include="Templates\FormSEDIGO.resx">
       <DependentUpon>FormSEDIGO.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -130,7 +131,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="contexto.ico" />
+    <Content Include="Icos\contexto.ico" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

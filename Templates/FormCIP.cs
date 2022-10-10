@@ -14,7 +14,7 @@ namespace Configuracao
 {
     public partial class FormCIP : Form
     {
-        public Ler_Escrever_Aquivos ler = new Ler_Escrever_Aquivos();
+        public ManipularXML ler = new ManipularXML();
         public CIP cip = new CIP();
 
         public FormCIP()
