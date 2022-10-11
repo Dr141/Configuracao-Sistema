@@ -60,11 +60,13 @@ namespace Configuracao
             {
                 this.label13.Visible = true;
                 this.tBPorta.Visible = true;
+                this.tBPorta.Text = "3050";
             }
             else
             {
                 this.label13.Visible = false;
                 this.tBPorta.Visible = false;
+                this.tBPorta.Text = "";
             }
         }
 
@@ -82,6 +84,7 @@ namespace Configuracao
             this.tBTituloAuxiliar.Text = dadp.TituloRelatorioAuxiliar;
             this.tBTituloPrevio.Text = dadp.TituloRelatorioPrevio;
             this.cB_TipoConexao.SelectedIndex = int.Parse(dadp.TipoDeConexao);
+            this.cB_Atualizacao.SelectedIndex = ler.AmbAtualizacao(dadp.AmbienteDeAtualizacao);
         }
 
         public void GravarInformações()
@@ -180,6 +183,11 @@ namespace Configuracao
 
             if (dr == DialogResult.Yes)
                 this.iniciarSistema(3);
+        }
+
+        private void cB_Atualizacao_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dadp.AmbienteDeAtualizacao = cB_Atualizacao.Text;
         }
     }
 }

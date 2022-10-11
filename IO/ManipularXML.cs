@@ -125,24 +125,10 @@ namespace Configuracao.IO
                 customConfigFileMap.ExeConfigFilename = nomeArquivo;
                 Configuration customConfig = ConfigurationManager.OpenMappedExeConfiguration(customConfigFileMap, ConfigurationUserLevel.None);
                 AppSettingsSection appSettings = (customConfig.GetSection("appSettings") as AppSettingsSection);
-
-                appSettings.Settings["ConexaoBanco"].Value = CriptografiaEng.Criptografar(dadp.ConexaoBanco);
-                //appSettings.Settings["AmbienteAtualizacao"].Value = CriptografiaEng.Criptografar(SEDI.AmbienteAtualizacao);
-                appSettings.Settings["Porta"].Value = CriptografiaEng.Criptografar(dadp.Porta);
-                appSettings.Settings["UsuarioBanco"].Value = CriptografiaEng.Criptografar(dadp.UsuarioBanco);
-                appSettings.Settings["SenhaBanco"].Value = CriptografiaEng.Criptografar(dadp.SenhaBanco);
-                appSettings.Settings["TipoDeConexao"].Value = CriptografiaEng.Criptografar(dadp.TipoDeConexao);
-                appSettings.Settings["NomeCartorio"].Value = CriptografiaEng.Criptografar(dadp.NomeCartorio);
-                appSettings.Settings["NomeOficial"].Value = CriptografiaEng.Criptografar(dadp.NomeOficial);
-                appSettings.Settings["Cidade"].Value = CriptografiaEng.Criptografar(dadp.Cidade);
-                appSettings.Settings["Uf"].Value = CriptografiaEng.Criptografar(dadp.Uf);
-                appSettings.Settings["TituloRelatorioAuxiliar"].Value = CriptografiaEng.Criptografar(dadp.TituloRelatorioAuxiliar);
-                appSettings.Settings["TituloRelatorioPrevio"].Value = CriptografiaEng.Criptografar(dadp.TituloRelatorioPrevio);
-                appSettings.Settings["CodNacional"].Value = CriptografiaEng.Criptografar(dadp.CodNacional);
+                dadp.Atualizar(appSettings);               
 
                 customConfig.Save();
-
-                MessageBox.Show("Configuração salva com sucesso.", "SEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Configuração salva com sucesso.", "DADP", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
@@ -253,21 +239,8 @@ namespace Configuracao.IO
                 ExeConfigurationFileMap customConfigFileMap = new ExeConfigurationFileMap();
                 customConfigFileMap.ExeConfigFilename = nomeArquivo;
                 Configuration customConfig = ConfigurationManager.OpenMappedExeConfiguration(customConfigFileMap, ConfigurationUserLevel.None);
-                AppSettingsSection appSettings = (customConfig.GetSection("appSettings") as AppSettingsSection);
-
-                dadp.ConexaoBanco = CriptografiaEng.Descriptografar(appSettings.Settings["ConexaoBanco"].Value);
-                //dadp.AmbienteAtualizacao = CriptografiaEng.Descriptografar(appSettings.Settings["AmbienteAtualizacao"].Value);
-                dadp.Porta = CriptografiaEng.Descriptografar(appSettings.Settings["Porta"].Value);
-                dadp.UsuarioBanco = CriptografiaEng.Descriptografar(appSettings.Settings["UsuarioBanco"].Value);
-                dadp.SenhaBanco = CriptografiaEng.Descriptografar(appSettings.Settings["SenhaBanco"].Value);
-                dadp.TipoDeConexao = CriptografiaEng.Descriptografar(appSettings.Settings["TipoDeConexao"].Value);
-                dadp.NomeCartorio = CriptografiaEng.Descriptografar(appSettings.Settings["NomeCartorio"].Value);
-                dadp.NomeOficial = CriptografiaEng.Descriptografar(appSettings.Settings["NomeOficial"].Value);
-                dadp.Cidade = CriptografiaEng.Descriptografar(appSettings.Settings["Cidade"].Value);
-                dadp.Uf = CriptografiaEng.Descriptografar(appSettings.Settings["Uf"].Value);
-                dadp.TituloRelatorioAuxiliar = CriptografiaEng.Descriptografar(appSettings.Settings["TituloRelatorioAuxiliar"].Value);
-                dadp.TituloRelatorioPrevio = CriptografiaEng.Descriptografar(appSettings.Settings["TituloRelatorioPrevio"].Value);
-                dadp.CodNacional = CriptografiaEng.Descriptografar(appSettings.Settings["CodNacional"].Value);
+                AppSettingsSection appSettings = (customConfig.GetSection("appSettings") as AppSettingsSection); 
+                dadp.Map(appSettings);
             }
             catch (Exception ex)
             {
@@ -277,25 +250,27 @@ namespace Configuracao.IO
 
         public int AmbAtualizacao(string amb)
         {
-            switch (amb)
-            {
-                case "PREVIEW":
-                    {
-                        return 0;
-                    }
-                case "PRODUCAO":
-                    {
-                        return 1;
-                    }
-                case "TESTES":
-                    {
-                        return 2;
-                    }
-                default:
-                    {
-                        return 1;
-                    }
-            }
+            if(amb != null)
+                switch (amb.ToUpper())
+                {
+                    case "PREVIEW":
+                        {
+                            return 0;
+                        }
+                    case "PRODUCAO":
+                        {
+                            return 1;
+                        }
+                    case "TESTES":
+                        {
+                            return 2;
+                        }
+                    default:
+                        {
+                            return 1;
+                        }
+                }
+            return -1;
         }        
     }
 }

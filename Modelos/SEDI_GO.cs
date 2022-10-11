@@ -46,7 +46,7 @@ namespace Configuracao.Modelos
                                  "<add key='Token' value='2B1B0C143605380B3D382D313A2D1A'/>" +
                                  "<add key='CodigoCartorio' value=''/>" +
                                  "<add key='ChaveSegurancaCartorio' value=''/>" +
-                                 "<add key='HashDoCartorio' value='5E4303563459165D164843190D6841B24C470649B94E1BBABCE9440DE1F7E3B35DBEE9B0EAA8A5F9'/>" +
+                                 "<add key='HashDoCartorio' value=''/>" +
                                  "<add key='AmbienteProducao' value='56'/>" +
                                  "<add key='TipoDeConexao' value='57'/>" +
                                  "<add key='DesabilitarGeracaoDeSelos' value='099628'/>" +
