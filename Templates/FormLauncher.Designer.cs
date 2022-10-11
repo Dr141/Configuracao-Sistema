@@ -64,38 +64,38 @@ namespace Configuracao
             this.groupBox3.Controls.Add(this.bttDesinstalar);
             this.groupBox3.Controls.Add(this.bttConsole);
             this.groupBox3.Controls.Add(this.bttServico);
-            this.groupBox3.Location = new System.Drawing.Point(435, 122);
+            this.groupBox3.Location = new System.Drawing.Point(215, 182);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(135, 105);
+            this.groupBox3.Size = new System.Drawing.Size(203, 54);
             this.groupBox3.TabIndex = 21;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Instalação";
             // 
             // bttDesinstalar
             // 
-            this.bttDesinstalar.Location = new System.Drawing.Point(9, 77);
+            this.bttDesinstalar.Location = new System.Drawing.Point(126, 20);
             this.bttDesinstalar.Name = "bttDesinstalar";
-            this.bttDesinstalar.Size = new System.Drawing.Size(114, 23);
+            this.bttDesinstalar.Size = new System.Drawing.Size(71, 23);
             this.bttDesinstalar.TabIndex = 14;
-            this.bttDesinstalar.Text = "Desinstalar serviço";
+            this.bttDesinstalar.Text = "Desinstalar";
             this.bttDesinstalar.UseVisualStyleBackColor = true;
             this.bttDesinstalar.Click += new System.EventHandler(this.bttDesinstalar_Click);
             // 
             // bttConsole
             // 
-            this.bttConsole.Location = new System.Drawing.Point(9, 19);
+            this.bttConsole.Location = new System.Drawing.Point(6, 19);
             this.bttConsole.Name = "bttConsole";
-            this.bttConsole.Size = new System.Drawing.Size(114, 23);
+            this.bttConsole.Size = new System.Drawing.Size(56, 23);
             this.bttConsole.TabIndex = 12;
-            this.bttConsole.Text = "Iniciar console";
+            this.bttConsole.Text = "Console";
             this.bttConsole.UseVisualStyleBackColor = true;
             this.bttConsole.Click += new System.EventHandler(this.bttConsole_Click);
             // 
             // bttServico
             // 
-            this.bttServico.Location = new System.Drawing.Point(9, 48);
+            this.bttServico.Location = new System.Drawing.Point(68, 20);
             this.bttServico.Name = "bttServico";
-            this.bttServico.Size = new System.Drawing.Size(114, 23);
+            this.bttServico.Size = new System.Drawing.Size(55, 23);
             this.bttServico.TabIndex = 13;
             this.bttServico.Text = "Serviço";
             this.bttServico.UseVisualStyleBackColor = true;
@@ -106,9 +106,9 @@ namespace Configuracao
             this.groupBox4.Controls.Add(this.bttGravar);
             this.groupBox4.Controls.Add(this.bttLimpar);
             this.groupBox4.Controls.Add(this.button3);
-            this.groupBox4.Location = new System.Drawing.Point(294, 122);
+            this.groupBox4.Location = new System.Drawing.Point(12, 182);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(129, 106);
+            this.groupBox4.Size = new System.Drawing.Size(197, 54);
             this.groupBox4.TabIndex = 20;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Configuração";
@@ -117,7 +117,7 @@ namespace Configuracao
             // 
             this.bttGravar.Location = new System.Drawing.Point(6, 19);
             this.bttGravar.Name = "bttGravar";
-            this.bttGravar.Size = new System.Drawing.Size(114, 23);
+            this.bttGravar.Size = new System.Drawing.Size(51, 23);
             this.bttGravar.TabIndex = 9;
             this.bttGravar.Text = "Gravar";
             this.bttGravar.UseVisualStyleBackColor = true;
@@ -125,9 +125,9 @@ namespace Configuracao
             // 
             // bttLimpar
             // 
-            this.bttLimpar.Location = new System.Drawing.Point(6, 48);
+            this.bttLimpar.Location = new System.Drawing.Point(63, 20);
             this.bttLimpar.Name = "bttLimpar";
-            this.bttLimpar.Size = new System.Drawing.Size(114, 23);
+            this.bttLimpar.Size = new System.Drawing.Size(57, 23);
             this.bttLimpar.TabIndex = 10;
             this.bttLimpar.Text = "Limpar";
             this.bttLimpar.UseVisualStyleBackColor = true;
@@ -135,11 +135,11 @@ namespace Configuracao
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(6, 77);
+            this.button3.Location = new System.Drawing.Point(126, 19);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(114, 23);
+            this.button3.Size = new System.Drawing.Size(62, 23);
             this.button3.TabIndex = 11;
-            this.button3.Text = "Iniciar sistema";
+            this.button3.Text = "Cliente";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -159,7 +159,7 @@ namespace Configuracao
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(594, 104);
+            this.groupBox1.Size = new System.Drawing.Size(406, 104);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Dados do sistema";
@@ -171,9 +171,9 @@ namespace Configuracao
             this.cBGerarSelos.Items.AddRange(new object[] {
             "Launcher.sdf",
             "Launcher"});
-            this.cBGerarSelos.Location = new System.Drawing.Point(423, 49);
+            this.cBGerarSelos.Location = new System.Drawing.Point(308, 49);
             this.cBGerarSelos.Name = "cBGerarSelos";
-            this.cBGerarSelos.Size = new System.Drawing.Size(159, 21);
+            this.cBGerarSelos.Size = new System.Drawing.Size(83, 21);
             this.cBGerarSelos.TabIndex = 11;
             // 
             // cB_Atualizacao
@@ -183,19 +183,19 @@ namespace Configuracao
             "Preview",
             "Producao",
             "Testes"});
-            this.cB_Atualizacao.Location = new System.Drawing.Point(423, 19);
+            this.cB_Atualizacao.Location = new System.Drawing.Point(308, 19);
             this.cB_Atualizacao.Name = "cB_Atualizacao";
-            this.cB_Atualizacao.Size = new System.Drawing.Size(159, 21);
+            this.cB_Atualizacao.Size = new System.Drawing.Size(83, 21);
             this.cB_Atualizacao.TabIndex = 2;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(279, 22);
+            this.label6.Location = new System.Drawing.Point(199, 22);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(126, 13);
+            this.label6.Size = new System.Drawing.Size(103, 13);
             this.label6.TabIndex = 10;
-            this.label6.Text = "Ambiente de atualização:";
+            this.label6.Text = "Tipo de atualização:";
             // 
             // cB_TipoConexao
             // 
@@ -205,7 +205,7 @@ namespace Configuracao
             "SQLServer"});
             this.cB_TipoConexao.Location = new System.Drawing.Point(108, 19);
             this.cB_TipoConexao.Name = "cB_TipoConexao";
-            this.cB_TipoConexao.Size = new System.Drawing.Size(154, 21);
+            this.cB_TipoConexao.Size = new System.Drawing.Size(85, 21);
             this.cB_TipoConexao.TabIndex = 1;
             this.cB_TipoConexao.SelectedIndexChanged += new System.EventHandler(this.cB_TipoConexao_SelectedIndexChanged);
             // 
@@ -221,7 +221,7 @@ namespace Configuracao
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(279, 46);
+            this.label4.Location = new System.Drawing.Point(199, 49);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(79, 13);
             this.label4.TabIndex = 6;
@@ -229,16 +229,16 @@ namespace Configuracao
             // 
             // tB_Senha
             // 
-            this.tB_Senha.Location = new System.Drawing.Point(423, 75);
+            this.tB_Senha.Location = new System.Drawing.Point(308, 78);
             this.tB_Senha.Name = "tB_Senha";
             this.tB_Senha.PasswordChar = '*';
-            this.tB_Senha.Size = new System.Drawing.Size(159, 20);
+            this.tB_Senha.Size = new System.Drawing.Size(83, 20);
             this.tB_Senha.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(279, 78);
+            this.label3.Location = new System.Drawing.Point(199, 78);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 13);
             this.label3.TabIndex = 4;
@@ -248,7 +248,7 @@ namespace Configuracao
             // 
             this.tB_Usuario.Location = new System.Drawing.Point(108, 75);
             this.tB_Usuario.Name = "tB_Usuario";
-            this.tB_Usuario.Size = new System.Drawing.Size(154, 20);
+            this.tB_Usuario.Size = new System.Drawing.Size(85, 20);
             this.tB_Usuario.TabIndex = 4;
             // 
             // label2
@@ -264,7 +264,7 @@ namespace Configuracao
             // 
             this.tB_StrConexao.Location = new System.Drawing.Point(108, 46);
             this.tB_StrConexao.Name = "tB_StrConexao";
-            this.tB_StrConexao.Size = new System.Drawing.Size(154, 20);
+            this.tB_StrConexao.Size = new System.Drawing.Size(85, 20);
             this.tB_StrConexao.TabIndex = 3;
             // 
             // label1
@@ -281,7 +281,7 @@ namespace Configuracao
             this.groupBox2.Controls.Add(this.tB_caminho);
             this.groupBox2.Location = new System.Drawing.Point(12, 122);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(276, 54);
+            this.groupBox2.Size = new System.Drawing.Size(406, 54);
             this.groupBox2.TabIndex = 22;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Caminho da BD";
@@ -291,21 +291,22 @@ namespace Configuracao
             this.tB_caminho.AccessibleDescription = "";
             this.tB_caminho.Location = new System.Drawing.Point(6, 22);
             this.tB_caminho.Name = "tB_caminho";
-            this.tB_caminho.Size = new System.Drawing.Size(253, 20);
+            this.tB_caminho.Size = new System.Drawing.Size(385, 20);
             this.tB_caminho.TabIndex = 4;
             // 
             // FormLauncher
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(613, 232);
+            this.ClientSize = new System.Drawing.Size(428, 244);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(629, 271);
+            this.MaximumSize = new System.Drawing.Size(444, 283);
+            this.MinimumSize = new System.Drawing.Size(444, 283);
             this.Name = "FormLauncher";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Configuração - Launcher";
