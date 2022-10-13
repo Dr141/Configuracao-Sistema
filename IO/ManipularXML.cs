@@ -93,18 +93,7 @@ namespace Configuracao.IO
                 Configuration customConfig = ConfigurationManager.OpenMappedExeConfiguration(customConfigFileMap, ConfigurationUserLevel.None);
                 AppSettingsSection appSettings = (customConfig.GetSection("appSettings") as AppSettingsSection);
 
-                appSettings.Settings["ConexaoBanco"].Value = CriptografiaEng.Criptografar(SEDI.ConexaoBanco);
-                appSettings.Settings["AmbienteAtualizacao"].Value = CriptografiaEng.Criptografar(SEDI.AmbienteAtualizacao);
-                appSettings.Settings["HashDoCartorio"].Value = CriptografiaEng.Criptografar(SEDI.HashDoCartorio);
-                appSettings.Settings["UsuarioBanco"].Value = CriptografiaEng.Criptografar(SEDI.UsuarioBanco);
-                appSettings.Settings["SenhaBanco"].Value = CriptografiaEng.Criptografar(SEDI.SenhaBanco);
-                appSettings.Settings["TipoDeConexao"].Value = CriptografiaEng.Criptografar(SEDI.TipoDeConexao);
-                appSettings.Settings["DesabilitarGeracaoDeSelos"].Value = CriptografiaEng.Criptografar(SEDI.DesabilitarGeracaoDeSelos);
-                appSettings.Settings["AmbienteProducao"].Value = CriptografiaEng.Criptografar(SEDI.AmbienteProducao);
-                appSettings.Settings["Token"].Value = CriptografiaEng.Criptografar(SEDI.Token);
-                appSettings.Settings["CodigoCartorio"].Value = CriptografiaEng.Criptografar(SEDI.CodigoCartorio);
-                appSettings.Settings["ChaveSegurancaCartorio"].Value = CriptografiaEng.Criptografar(SEDI.ChaveSegurancaCartorio);
-
+                SEDI.Atualizar(appSettings);
                 customConfig.Save();
 
                 MessageBox.Show("Configuração salva com sucesso.", "SEDI", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -210,19 +199,8 @@ namespace Configuracao.IO
                 customConfigFileMap.ExeConfigFilename = nomeArquivo;
                 Configuration customConfig = ConfigurationManager.OpenMappedExeConfiguration(customConfigFileMap, ConfigurationUserLevel.None);
                 AppSettingsSection appSettings = (customConfig.GetSection("appSettings") as AppSettingsSection);
-                string url = appSettings.Settings["ConexaoBanco"].Value;
 
-                SEDI.ConexaoBanco = CriptografiaEng.Descriptografar(appSettings.Settings["ConexaoBanco"].Value);
-                SEDI.AmbienteAtualizacao = CriptografiaEng.Descriptografar(appSettings.Settings["AmbienteAtualizacao"].Value);
-                SEDI.HashDoCartorio = CriptografiaEng.Descriptografar(appSettings.Settings["HashDoCartorio"].Value);
-                SEDI.UsuarioBanco = CriptografiaEng.Descriptografar(appSettings.Settings["UsuarioBanco"].Value);
-                SEDI.SenhaBanco = CriptografiaEng.Descriptografar(appSettings.Settings["SenhaBanco"].Value);
-                SEDI.TipoDeConexao = CriptografiaEng.Descriptografar(appSettings.Settings["TipoDeConexao"].Value);
-                SEDI.DesabilitarGeracaoDeSelos = CriptografiaEng.Descriptografar(appSettings.Settings["DesabilitarGeracaoDeSelos"].Value);
-                SEDI.AmbienteProducao = CriptografiaEng.Descriptografar(appSettings.Settings["AmbienteProducao"].Value);
-                SEDI.Token = CriptografiaEng.Descriptografar(appSettings.Settings["Token"].Value);
-                SEDI.CodigoCartorio = CriptografiaEng.Descriptografar(appSettings.Settings["CodigoCartorio"].Value);
-                SEDI.ChaveSegurancaCartorio = CriptografiaEng.Descriptografar(appSettings.Settings["ChaveSegurancaCartorio"].Value);
+                SEDI.Map(appSettings);
             }
             catch (Exception ex)
             {
