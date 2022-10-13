@@ -78,7 +78,7 @@ namespace Configuracao.Modelos
                                 "<?xml version='1.0' encoding='utf-8'?>" +
                                 "<configuration>" +
                                 "<appSettings>" +
-                                "<add key='EnderecoServico' value='575B564B6241445B41' />" +
+                                "<add key='EnderecoServidor' value='575B564B6241445B41' />" +
                                 "<add key='StackTrace' value='03060A0414' />" +
                                 "</appSettings>" +
                                 "</configuration>"
