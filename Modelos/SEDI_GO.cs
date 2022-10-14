@@ -1,12 +1,11 @@
 ﻿using Configuracao.IO;
-using Engegraph.Comum.Utilitarios.Seguranca;
 using System.Configuration;
 using System.IO;
 using System.Xml;
 
 namespace Configuracao.Modelos
 {
-    public class SEDI_GO
+    public class SEDI_GO : Cliptrografia
     {
         public string ConexaoBanco { get; set; }
         public string UsuarioBanco { get; set; }
@@ -99,38 +98,38 @@ namespace Configuracao.Modelos
                 switch (item)
                 {
                     case "ConexaoBanco":
-                        ConexaoBanco = CriptografiaEng.Descriptografar(appSettings.Settings["ConexaoBanco"].Value);
+                        ConexaoBanco = DecriptografarNormal(appSettings.Settings["ConexaoBanco"].Value);
                         break;
                     case "AmbienteAtualizacao":
-                        AmbienteAtualizacao = CriptografiaEng.Descriptografar(appSettings.Settings["AmbienteAtualizacao"].Value);
+                        AmbienteAtualizacao = DecriptografarNormal(appSettings.Settings["AmbienteAtualizacao"].Value);
                         automatico = true;
                         break;
                     case "HashDoCartorio":
-                        HashDoCartorio = CriptografiaEng.Descriptografar(appSettings.Settings["HashDoCartorio"].Value);
+                        HashDoCartorio = DecriptografarNormal(appSettings.Settings["HashDoCartorio"].Value);
                         break;
                     case "UsuarioBanco":
-                        UsuarioBanco = CriptografiaEng.Descriptografar(appSettings.Settings["UsuarioBanco"].Value);
+                        UsuarioBanco = DecriptografarNormal(appSettings.Settings["UsuarioBanco"].Value);
                         break;
                     case "SenhaBanco":
-                        SenhaBanco = CriptografiaEng.Descriptografar(appSettings.Settings["SenhaBanco"].Value);
+                        SenhaBanco = DecriptografarNormal(appSettings.Settings["SenhaBanco"].Value);
                         break;
                     case "TipoDeConexao":
-                        TipoDeConexao = CriptografiaEng.Descriptografar(appSettings.Settings["TipoDeConexao"].Value);
+                        TipoDeConexao = DecriptografarNormal(appSettings.Settings["TipoDeConexao"].Value);
                         break;
                     case "DesabilitarGeracaoDeSelos":
-                        DesabilitarGeracaoDeSelos = CriptografiaEng.Descriptografar(appSettings.Settings["DesabilitarGeracaoDeSelos"].Value);
+                        DesabilitarGeracaoDeSelos = DecriptografarNormal(appSettings.Settings["DesabilitarGeracaoDeSelos"].Value);
                         break;
                     case "AmbienteProducao":
-                        AmbienteProducao = CriptografiaEng.Descriptografar(appSettings.Settings["AmbienteProducao"].Value);
+                        AmbienteProducao = DecriptografarNormal(appSettings.Settings["AmbienteProducao"].Value);
                         break;
                     case "Token":
-                        Token = CriptografiaEng.Descriptografar(appSettings.Settings["Token"].Value);
+                        Token = DecriptografarNormal(appSettings.Settings["Token"].Value);
                         break;
                     case "CodigoCartorio":
-                        CodigoCartorio = CriptografiaEng.Descriptografar(appSettings.Settings["CodigoCartorio"].Value);
+                        CodigoCartorio = DecriptografarNormal(appSettings.Settings["CodigoCartorio"].Value);
                         break;
                     case "ChaveSegurancaCartorio":
-                        ChaveSegurancaCartorio = CriptografiaEng.Descriptografar(appSettings.Settings["ChaveSegurancaCartorio"].Value);
+                        ChaveSegurancaCartorio = DecriptografarNormal(appSettings.Settings["ChaveSegurancaCartorio"].Value);
                         break;
                 }
             }
@@ -138,28 +137,28 @@ namespace Configuracao.Modelos
 
         public void Atualizar(AppSettingsSection appSettings)
         {
-            appSettings.Settings["ConexaoBanco"].Value = CriptografiaEng.Criptografar(ConexaoBanco);
+            appSettings.Settings["ConexaoBanco"].Value = CriptografarNormal(ConexaoBanco);
 
             if (automatico)
             {
-                appSettings.Settings["AmbienteAtualizacao"].Value = CriptografiaEng.Criptografar(AmbienteAtualizacao);
+                appSettings.Settings["AmbienteAtualizacao"].Value = CriptografarNormal(AmbienteAtualizacao);
             }
             else
             {
-                KeyValueConfigurationElement keyValue = new KeyValueConfigurationElement("AmbienteAtualizacao", CriptografiaEng.Criptografar(AmbienteAtualizacao));
+                KeyValueConfigurationElement keyValue = new KeyValueConfigurationElement("AmbienteAtualizacao", CriptografarNormal(AmbienteAtualizacao));
                 appSettings.Settings.Add(keyValue);
                 automatico = true;
             }            
             
-            appSettings.Settings["HashDoCartorio"].Value = CriptografiaEng.Criptografar(HashDoCartorio);
-            appSettings.Settings["UsuarioBanco"].Value = CriptografiaEng.Criptografar(UsuarioBanco);
-            appSettings.Settings["SenhaBanco"].Value = CriptografiaEng.Criptografar(SenhaBanco);
-            appSettings.Settings["TipoDeConexao"].Value = CriptografiaEng.Criptografar(TipoDeConexao);
-            appSettings.Settings["DesabilitarGeracaoDeSelos"].Value = CriptografiaEng.Criptografar(DesabilitarGeracaoDeSelos);
-            appSettings.Settings["AmbienteProducao"].Value = CriptografiaEng.Criptografar(AmbienteProducao);
-            appSettings.Settings["Token"].Value = CriptografiaEng.Criptografar(Token);
-            appSettings.Settings["CodigoCartorio"].Value = CriptografiaEng.Criptografar(CodigoCartorio);
-            appSettings.Settings["ChaveSegurancaCartorio"].Value = CriptografiaEng.Criptografar(ChaveSegurancaCartorio);
+            appSettings.Settings["HashDoCartorio"].Value = CriptografarNormal(HashDoCartorio);
+            appSettings.Settings["UsuarioBanco"].Value = CriptografarNormal(UsuarioBanco);
+            appSettings.Settings["SenhaBanco"].Value = CriptografarNormal(SenhaBanco);
+            appSettings.Settings["TipoDeConexao"].Value = CriptografarNormal(TipoDeConexao);
+            appSettings.Settings["DesabilitarGeracaoDeSelos"].Value = CriptografarNormal(DesabilitarGeracaoDeSelos);
+            appSettings.Settings["AmbienteProducao"].Value = CriptografarNormal(AmbienteProducao);
+            appSettings.Settings["Token"].Value = CriptografarNormal(Token);
+            appSettings.Settings["CodigoCartorio"].Value = CriptografarNormal(CodigoCartorio);
+            appSettings.Settings["ChaveSegurancaCartorio"].Value = CriptografarNormal(ChaveSegurancaCartorio);
         }
     }
 }
