@@ -1,5 +1,4 @@
 ﻿using Configuracao.Modelos;
-using Engegraph.Comum.Utilitarios.Seguranca;
 using System;
 using System.Configuration;
 using System.Linq;
@@ -8,7 +7,7 @@ using System.Xml.Linq;
 
 namespace Configuracao.IO
 {
-    public class ManipularXML
+    public class ManipularXML: Cliptrografia
     {
         public string caminhoArquivo { get; set; }
         public string _stringConexao { get; set; }
@@ -20,15 +19,15 @@ namespace Configuracao.IO
             try
             {
                 XElement XML = XElement.Load(nomeArquivo);
-                XML.Descendants("ConexaoBanco").First().LastAttribute.Value = XAesSimples.Criptografar(oP88.ConexaoBanco);
-                XML.Descendants("UsuarioBanco").First().LastAttribute.Value = XAesSimples.Criptografar(oP88.UsuarioBanco);
-                XML.Descendants("SenhaBanco").First().LastAttribute.Value = XAesSimples.Criptografar(oP88.SenhaBanco);
-                XML.Descendants("UrlDeComunicacao").First().LastAttribute.Value = XAesSimples.Criptografar(oP88.UrlDeComunicacao);
-                XML.Descendants("UsuarioSisCoaf").First().LastAttribute.Value = XAesSimples.Criptografar(oP88.UsuarioSisCoaf);
-                XML.Descendants("SenhaSisCoaf").First().LastAttribute.Value = XAesSimples.Criptografar(oP88.SenhaSisCoaf);
-                XML.Descendants("TipoDeConexao").First().LastAttribute.Value = XAesSimples.Criptografar(oP88.TipoDeConexao);
-                XML.Descendants("AmbienteAtualizacao").First().LastAttribute.Value = XAesSimples.Criptografar(oP88.AmbienteAtualizacao);
-                XML.Descendants("EnderecoServico").First().LastAttribute.Value = XAesSimples.Criptografar(oP88.EnderecoSevico);
+                XML.Descendants("ConexaoBanco").First().LastAttribute.Value = CriptografarComplexa(oP88.ConexaoBanco);
+                XML.Descendants("UsuarioBanco").First().LastAttribute.Value = CriptografarComplexa(oP88.UsuarioBanco);
+                XML.Descendants("SenhaBanco").First().LastAttribute.Value = CriptografarComplexa(oP88.SenhaBanco);
+                XML.Descendants("UrlDeComunicacao").First().LastAttribute.Value = CriptografarComplexa(oP88.UrlDeComunicacao);
+                XML.Descendants("UsuarioSisCoaf").First().LastAttribute.Value = CriptografarComplexa(oP88.UsuarioSisCoaf);
+                XML.Descendants("SenhaSisCoaf").First().LastAttribute.Value = CriptografarComplexa(oP88.SenhaSisCoaf);
+                XML.Descendants("TipoDeConexao").First().LastAttribute.Value = CriptografarComplexa(oP88.TipoDeConexao);
+                XML.Descendants("AmbienteAtualizacao").First().LastAttribute.Value = CriptografarComplexa(oP88.AmbienteAtualizacao);
+                XML.Descendants("EnderecoServico").First().LastAttribute.Value = CriptografarComplexa(oP88.EnderecoSevico);
                 XML.Save(nomeArquivo);
                 MessageBox.Show("Configuração salva com sucesso.", "Provimento88", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -45,12 +44,12 @@ namespace Configuracao.IO
             try
             {
                 XElement XML = XElement.Load(nomeArquivo);
-                XML.Descendants("SqlHost").First().LastAttribute.Value = XAesSimples.Criptografar(launcher.SqlHost);
-                XML.Descendants("SqlDatabase").First().LastAttribute.Value = XAesSimples.Criptografar(launcher.SqlDatabase);
-                XML.Descendants("Usuario").First().LastAttribute.Value = XAesSimples.Criptografar(launcher.Usuario);
-                XML.Descendants("Senha").First().LastAttribute.Value = XAesSimples.Criptografar(launcher.Senha);
-                XML.Descendants("TipoSgbd").First().LastAttribute.Value = XAesSimples.Criptografar(launcher.TipoSgbd);
-                XML.Descendants("AmbienteAtualizacao").First().LastAttribute.Value = XAesSimples.Criptografar(launcher.AmbienteAtualizacao);
+                XML.Descendants("SqlHost").First().LastAttribute.Value = CriptografarComplexa(launcher.SqlHost);
+                XML.Descendants("SqlDatabase").First().LastAttribute.Value = CriptografarComplexa(launcher.SqlDatabase);
+                XML.Descendants("Usuario").First().LastAttribute.Value = CriptografarComplexa(launcher.Usuario);
+                XML.Descendants("Senha").First().LastAttribute.Value = CriptografarComplexa(launcher.Senha);
+                XML.Descendants("TipoSgbd").First().LastAttribute.Value = CriptografarComplexa(launcher.TipoSgbd);
+                XML.Descendants("AmbienteAtualizacao").First().LastAttribute.Value = CriptografarComplexa(launcher.AmbienteAtualizacao);
                 XML.Save(nomeArquivo);
                 MessageBox.Show("Configuração salva com sucesso.", "Launcher", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -68,11 +67,11 @@ namespace Configuracao.IO
             {
                 XElement XML = XElement.Load(nomeArquivo);
 
-                XML.Descendants("AmbienteDeAtualizacao").First().LastAttribute.Value = XAesSimples.Criptografar(cip.AmbienteDeAtualizacao);
-                XML.Descendants("SqlHost").First().LastAttribute.Value = XAesSimples.Criptografar(cip.SqlHost);
-                XML.Descendants("SqlDataBase").First().LastAttribute.Value = XAesSimples.Criptografar(cip.SqlDataBase);
-                XML.Descendants("Usuario").First().LastAttribute.Value = XAesSimples.Criptografar(cip.Usuario);
-                XML.Descendants("Senha").First().LastAttribute.Value = XAesSimples.Criptografar(cip.Senha);
+                XML.Descendants("AmbienteDeAtualizacao").First().LastAttribute.Value = CriptografarComplexa(cip.AmbienteDeAtualizacao);
+                XML.Descendants("SqlHost").First().LastAttribute.Value = CriptografarComplexa(cip.SqlHost);
+                XML.Descendants("SqlDataBase").First().LastAttribute.Value = CriptografarComplexa(cip.SqlDataBase);
+                XML.Descendants("Usuario").First().LastAttribute.Value = CriptografarComplexa(cip.Usuario);
+                XML.Descendants("Senha").First().LastAttribute.Value = CriptografarComplexa(cip.Senha);
 
                 MessageBox.Show("Configuração salva com sucesso.", "CIP", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -133,15 +132,15 @@ namespace Configuracao.IO
             {
                 XElement XML = XElement.Load(nomeArquivo);
 
-                p88.ConexaoBanco = XAesSimples.Decriptografar(XML.Descendants("ConexaoBanco").First().LastAttribute.Value);
-                p88.UsuarioBanco = XAesSimples.Decriptografar(XML.Descendants("UsuarioBanco").First().LastAttribute.Value);
-                p88.SenhaBanco = XAesSimples.Decriptografar(XML.Descendants("SenhaBanco").First().LastAttribute.Value);
-                p88.UrlDeComunicacao = XAesSimples.Decriptografar(XML.Descendants("UrlDeComunicacao").First().LastAttribute.Value);
-                p88.UsuarioSisCoaf = XAesSimples.Decriptografar(XML.Descendants("UsuarioSisCoaf").First().LastAttribute.Value);
-                p88.SenhaSisCoaf = XAesSimples.Decriptografar(XML.Descendants("SenhaSisCoaf").First().LastAttribute.Value);
-                p88.TipoDeConexao = XAesSimples.Decriptografar(XML.Descendants("TipoDeConexao").First().LastAttribute.Value);
-                p88.AmbienteAtualizacao = XAesSimples.Decriptografar(XML.Descendants("AmbienteAtualizacao").First().LastAttribute.Value);
-                p88.EnderecoSevico = XAesSimples.Decriptografar(XML.Descendants("EnderecoServico").First().LastAttribute.Value);
+                p88.ConexaoBanco = DecriptografarComplexa(XML.Descendants("ConexaoBanco").First().LastAttribute.Value);
+                p88.UsuarioBanco = DecriptografarComplexa(XML.Descendants("UsuarioBanco").First().LastAttribute.Value);
+                p88.SenhaBanco = DecriptografarComplexa(XML.Descendants("SenhaBanco").First().LastAttribute.Value);
+                p88.UrlDeComunicacao = DecriptografarComplexa(XML.Descendants("UrlDeComunicacao").First().LastAttribute.Value);
+                p88.UsuarioSisCoaf = DecriptografarComplexa(XML.Descendants("UsuarioSisCoaf").First().LastAttribute.Value);
+                p88.SenhaSisCoaf = DecriptografarComplexa(XML.Descendants("SenhaSisCoaf").First().LastAttribute.Value);
+                p88.TipoDeConexao = DecriptografarComplexa(XML.Descendants("TipoDeConexao").First().LastAttribute.Value);
+                p88.AmbienteAtualizacao = DecriptografarComplexa(XML.Descendants("AmbienteAtualizacao").First().LastAttribute.Value);
+                p88.EnderecoSevico = DecriptografarComplexa(XML.Descendants("EnderecoServico").First().LastAttribute.Value);
             }
             catch (Exception ex)
             {
@@ -157,11 +156,11 @@ namespace Configuracao.IO
             {
                 XElement XML = XElement.Load(nomeArquivo);
 
-                launcher.SqlHost = XAesSimples.Decriptografar(XML.Descendants("SqlHost").First().LastAttribute.Value);
-                launcher.Usuario = XAesSimples.Decriptografar(XML.Descendants("Usuario").First().LastAttribute.Value);
-                launcher.Senha = XAesSimples.Decriptografar(XML.Descendants("Senha").First().LastAttribute.Value);
-                launcher.TipoSgbd = XAesSimples.Decriptografar(XML.Descendants("TipoSgbd").First().LastAttribute.Value);
-                launcher.AmbienteAtualizacao = XAesSimples.Decriptografar(XML.Descendants("AmbienteAtualizacao").First().LastAttribute.Value);
+                launcher.SqlHost = DecriptografarComplexa(XML.Descendants("SqlHost").First().LastAttribute.Value);
+                launcher.Usuario = DecriptografarComplexa(XML.Descendants("Usuario").First().LastAttribute.Value);
+                launcher.Senha = DecriptografarComplexa(XML.Descendants("Senha").First().LastAttribute.Value);
+                launcher.TipoSgbd = DecriptografarComplexa(XML.Descendants("TipoSgbd").First().LastAttribute.Value);
+                launcher.AmbienteAtualizacao = DecriptografarComplexa(XML.Descendants("AmbienteAtualizacao").First().LastAttribute.Value);
             }
             catch (Exception ex)
             {
@@ -177,11 +176,11 @@ namespace Configuracao.IO
             {
                 XElement XML = XElement.Load(nomeArquivo);
 
-                cip.AmbienteDeAtualizacao = XAesSimples.Decriptografar(XML.Descendants("AmbienteDeAtualizacao").First().LastAttribute.Value);
-                cip.SqlHost = XAesSimples.Decriptografar(XML.Descendants("SqlHost").First().LastAttribute.Value);
-                cip.SqlDataBase = XAesSimples.Decriptografar(XML.Descendants("SqlDataBase").First().LastAttribute.Value);
-                cip.Usuario = XAesSimples.Decriptografar(XML.Descendants("Usuario").First().LastAttribute.Value);
-                cip.Senha = XAesSimples.Decriptografar(XML.Descendants("Senha").First().LastAttribute.Value);
+                cip.AmbienteDeAtualizacao = DecriptografarComplexa(XML.Descendants("AmbienteDeAtualizacao").First().LastAttribute.Value);
+                cip.SqlHost = DecriptografarComplexa(XML.Descendants("SqlHost").First().LastAttribute.Value);
+                cip.SqlDataBase = DecriptografarComplexa(XML.Descendants("SqlDataBase").First().LastAttribute.Value);
+                cip.Usuario = DecriptografarComplexa(XML.Descendants("Usuario").First().LastAttribute.Value);
+                cip.Senha = DecriptografarComplexa(XML.Descendants("Senha").First().LastAttribute.Value);
             }
             catch (Exception ex)
             {

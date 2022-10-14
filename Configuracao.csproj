@@ -53,6 +53,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Modelos\Cliptrografia.cs" />
     <Compile Include="Templates\FormLauncher.cs">
       <SubType>Form</SubType>
     </Compile>

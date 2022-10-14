@@ -1,12 +1,11 @@
 ﻿using Configuracao.IO;
-using Engegraph.Comum.Utilitarios.Seguranca;
 using System.Configuration;
 using System.IO;
 using System.Xml;
 
 namespace Configuracao.Modelos
 {
-    public class DADP
+    public class DADP : Cliptrografia
     {
         public string ConexaoBanco { get; set; }
         public string UsuarioBanco { get; set; }
@@ -95,44 +94,44 @@ namespace Configuracao.Modelos
                 switch (a)
                 {
                     case "ConexaoBanco":
-                        ConexaoBanco = CriptografiaEng.Descriptografar(appSettings.Settings["ConexaoBanco"].Value);
+                        ConexaoBanco = DecriptografarNormal(appSettings.Settings["ConexaoBanco"].Value);
                         break;
                     case "AmbienteAtualizacao":
-                        AmbienteDeAtualizacao = CriptografiaEng.Descriptografar(appSettings.Settings["AmbienteAtualizacao"].Value);
+                        AmbienteDeAtualizacao = DecriptografarNormal(appSettings.Settings["AmbienteAtualizacao"].Value);
                         automatico = true;
                         break;
                     case "Porta":
-                        Porta = CriptografiaEng.Descriptografar(appSettings.Settings["Porta"].Value);
+                        Porta = DecriptografarNormal(appSettings.Settings["Porta"].Value);
                         break;
                     case "UsuarioBanco":
-                        UsuarioBanco = CriptografiaEng.Descriptografar(appSettings.Settings["UsuarioBanco"].Value);
+                        UsuarioBanco = DecriptografarNormal(appSettings.Settings["UsuarioBanco"].Value);
                         break;
                     case "SenhaBanco":
-                        SenhaBanco = CriptografiaEng.Descriptografar(appSettings.Settings["SenhaBanco"].Value);
+                        SenhaBanco = DecriptografarNormal(appSettings.Settings["SenhaBanco"].Value);
                         break;
                     case "TipoDeConexao":
-                        TipoDeConexao = CriptografiaEng.Descriptografar(appSettings.Settings["TipoDeConexao"].Value);
+                        TipoDeConexao = DecriptografarNormal(appSettings.Settings["TipoDeConexao"].Value);
                         break;
                     case "NomeCartorio":
-                        NomeCartorio = CriptografiaEng.Descriptografar(appSettings.Settings["NomeCartorio"].Value);
+                        NomeCartorio = DecriptografarNormal(appSettings.Settings["NomeCartorio"].Value);
                         break;
                     case "NomeOficial":
-                        NomeOficial = CriptografiaEng.Descriptografar(appSettings.Settings["NomeOficial"].Value);
+                        NomeOficial = DecriptografarNormal(appSettings.Settings["NomeOficial"].Value);
                         break;
                     case "Cidade":
-                        Cidade = CriptografiaEng.Descriptografar(appSettings.Settings["Cidade"].Value);
+                        Cidade = DecriptografarNormal(appSettings.Settings["Cidade"].Value);
                         break;
                     case "Uf":
-                        Uf = CriptografiaEng.Descriptografar(appSettings.Settings["Uf"].Value);
+                        Uf = DecriptografarNormal(appSettings.Settings["Uf"].Value);
                         break;
                     case "TituloRelatorioAuxiliar":
-                        TituloRelatorioAuxiliar = CriptografiaEng.Descriptografar(appSettings.Settings["TituloRelatorioAuxiliar"].Value);
+                        TituloRelatorioAuxiliar = DecriptografarNormal(appSettings.Settings["TituloRelatorioAuxiliar"].Value);
                         break;
                     case "TituloRelatorioPrevio":
-                        TituloRelatorioPrevio = CriptografiaEng.Descriptografar(appSettings.Settings["TituloRelatorioPrevio"].Value);
+                        TituloRelatorioPrevio = DecriptografarNormal(appSettings.Settings["TituloRelatorioPrevio"].Value);
                         break;
                     case "CodNacional":
-                        CodNacional = CriptografiaEng.Descriptografar(appSettings.Settings["CodNacional"].Value);
+                        CodNacional = DecriptografarNormal(appSettings.Settings["CodNacional"].Value);
                         break;
                 }
             }
@@ -140,29 +139,29 @@ namespace Configuracao.Modelos
 
         public void Atualizar(AppSettingsSection appSettings)
         {
-            appSettings.Settings["ConexaoBanco"].Value = CriptografiaEng.Criptografar(ConexaoBanco);
+            appSettings.Settings["ConexaoBanco"].Value = CriptografarNormal(ConexaoBanco);
             if (automatico)
             {
-                appSettings.Settings["AmbienteAtualizacao"].Value = CriptografiaEng.Criptografar(AmbienteDeAtualizacao);
+                appSettings.Settings["AmbienteAtualizacao"].Value = CriptografarNormal(AmbienteDeAtualizacao);
             }
             else
             {
-                KeyValueConfigurationElement keyValue = new KeyValueConfigurationElement("AmbienteAtualizacao", CriptografiaEng.Criptografar(AmbienteDeAtualizacao));
+                KeyValueConfigurationElement keyValue = new KeyValueConfigurationElement("AmbienteAtualizacao", CriptografarNormal(AmbienteDeAtualizacao));
                 appSettings.Settings.Add(keyValue);
                 automatico = true;
             }
             
-            appSettings.Settings["Porta"].Value = CriptografiaEng.Criptografar(Porta);
-            appSettings.Settings["UsuarioBanco"].Value = CriptografiaEng.Criptografar(UsuarioBanco);
-            appSettings.Settings["SenhaBanco"].Value = CriptografiaEng.Criptografar(SenhaBanco);
-            appSettings.Settings["TipoDeConexao"].Value = CriptografiaEng.Criptografar(TipoDeConexao);
-            appSettings.Settings["NomeCartorio"].Value = CriptografiaEng.Criptografar(NomeCartorio);
-            appSettings.Settings["NomeOficial"].Value = CriptografiaEng.Criptografar(NomeOficial);
-            appSettings.Settings["Cidade"].Value = CriptografiaEng.Criptografar(Cidade);
-            appSettings.Settings["Uf"].Value = CriptografiaEng.Criptografar(Uf);
-            appSettings.Settings["TituloRelatorioAuxiliar"].Value = CriptografiaEng.Criptografar(TituloRelatorioAuxiliar);
-            appSettings.Settings["TituloRelatorioPrevio"].Value = CriptografiaEng.Criptografar(TituloRelatorioPrevio);
-            appSettings.Settings["CodNacional"].Value = CriptografiaEng.Criptografar(CodNacional);
+            appSettings.Settings["Porta"].Value = CriptografarNormal(Porta);
+            appSettings.Settings["UsuarioBanco"].Value = CriptografarNormal(UsuarioBanco);
+            appSettings.Settings["SenhaBanco"].Value = CriptografarNormal(SenhaBanco);
+            appSettings.Settings["TipoDeConexao"].Value = CriptografarNormal(TipoDeConexao);
+            appSettings.Settings["NomeCartorio"].Value = CriptografarNormal(NomeCartorio);
+            appSettings.Settings["NomeOficial"].Value = CriptografarNormal(NomeOficial);
+            appSettings.Settings["Cidade"].Value = CriptografarNormal(Cidade);
+            appSettings.Settings["Uf"].Value = CriptografarNormal(Uf);
+            appSettings.Settings["TituloRelatorioAuxiliar"].Value = CriptografarNormal(TituloRelatorioAuxiliar);
+            appSettings.Settings["TituloRelatorioPrevio"].Value = CriptografarNormal(TituloRelatorioPrevio);
+            appSettings.Settings["CodNacional"].Value = CriptografarNormal(CodNacional);
         }
     }
 }
