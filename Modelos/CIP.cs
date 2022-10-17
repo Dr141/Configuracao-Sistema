@@ -1,10 +1,12 @@
 ﻿using Configuracao.IO;
 using System.IO;
+using System.Linq;
 using System.Xml;
+using System.Xml.Linq;
 
 namespace Configuracao.Modelos
 {
-    public class CIP
+    public class CIP : Cliptrografia
     {
         public string SqlHost { get; set; }
         public string SqlDataBase { get; set; }
@@ -58,6 +60,15 @@ namespace Configuracao.Modelos
                                 "</configuration>"
                             );
             return xml;
+        }
+    
+        public void Map(XElement XML)
+        {
+            AmbienteDeAtualizacao = DecriptografarComplexa(XML.Descendants("AmbienteDeAtualizacao").First().LastAttribute.Value);
+            SqlHost = DecriptografarComplexa(XML.Descendants("SqlHost").First().LastAttribute.Value);
+            SqlDataBase = DecriptografarComplexa(XML.Descendants("SqlDataBase").First().LastAttribute.Value);
+            Usuario = DecriptografarComplexa(XML.Descendants("Usuario").First().LastAttribute.Value);
+            Senha = DecriptografarComplexa(XML.Descendants("Senha").First().LastAttribute.Value);
         }
     }
 }
