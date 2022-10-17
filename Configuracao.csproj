@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Modelos\Cliptrografia.cs" />
+    <Compile Include="Modelos\SEDI_PA.cs" />
     <Compile Include="Templates\FormLauncher.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +100,12 @@
     <Compile Include="Modelos\SEDI_GO.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Templates\FormSEDIPA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Templates\FormSEDIPA.Designer.cs">
+      <DependentUpon>FormSEDIPA.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Templates\FormLauncher.resx">
       <DependentUpon>FormLauncher.cs</DependentUpon>
     </EmbeddedResource>
@@ -127,6 +134,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Templates\FormSEDIPA.resx">
+      <DependentUpon>FormSEDIPA.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

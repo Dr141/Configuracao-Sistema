@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace Configuracao.Templates
 {
-    public partial class FormPrincipal : Form
+    public partial class FormSEDIPA : Form
     {
-        public FormPrincipal()
+        public FormSEDIPA()
         {
             InitializeComponent();
-        }
-
-        private void buttCIP_MouseClick(object sender, MouseEventArgs e)
-        {
-
         }
     }
 }

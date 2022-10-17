@@ -31,71 +31,72 @@ namespace Configuracao.Templates
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.buttCIP = new System.Windows.Forms.Button();
+            this.buttDADP = new System.Windows.Forms.Button();
+            this.buttLauncher = new System.Windows.Forms.Button();
+            this.buttP88 = new System.Windows.Forms.Button();
+            this.buttSEDIGO = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.button5);
-            this.groupBox1.Controls.Add(this.button4);
-            this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Controls.Add(this.buttSEDIGO);
+            this.groupBox1.Controls.Add(this.buttP88);
+            this.groupBox1.Controls.Add(this.buttLauncher);
+            this.groupBox1.Controls.Add(this.buttDADP);
+            this.groupBox1.Controls.Add(this.buttCIP);
             this.groupBox1.Location = new System.Drawing.Point(14, 11);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(396, 137);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
-            // button1
+            // buttCIP
             // 
-            this.button1.Location = new System.Drawing.Point(6, 19);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(123, 51);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "CIP";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttCIP.Location = new System.Drawing.Point(6, 19);
+            this.buttCIP.Name = "buttCIP";
+            this.buttCIP.Size = new System.Drawing.Size(123, 51);
+            this.buttCIP.TabIndex = 0;
+            this.buttCIP.Text = "CIP";
+            this.buttCIP.UseVisualStyleBackColor = true;
+            this.buttCIP.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttCIP_MouseClick);
             // 
-            // button2
+            // buttDADP
             // 
-            this.button2.Location = new System.Drawing.Point(135, 19);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(123, 51);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "DADP";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttDADP.Location = new System.Drawing.Point(135, 19);
+            this.buttDADP.Name = "buttDADP";
+            this.buttDADP.Size = new System.Drawing.Size(123, 51);
+            this.buttDADP.TabIndex = 1;
+            this.buttDADP.Text = "DADP";
+            this.buttDADP.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // buttLauncher
             // 
-            this.button3.Location = new System.Drawing.Point(264, 19);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(123, 51);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "Launcher";
-            this.button3.UseVisualStyleBackColor = true;
+            this.buttLauncher.Location = new System.Drawing.Point(264, 19);
+            this.buttLauncher.Name = "buttLauncher";
+            this.buttLauncher.Size = new System.Drawing.Size(123, 51);
+            this.buttLauncher.TabIndex = 2;
+            this.buttLauncher.Text = "Launcher";
+            this.buttLauncher.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // buttP88
             // 
-            this.button4.Location = new System.Drawing.Point(6, 76);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(123, 51);
-            this.button4.TabIndex = 3;
-            this.button4.Text = "P88";
-            this.button4.UseVisualStyleBackColor = true;
+            this.buttP88.Location = new System.Drawing.Point(6, 76);
+            this.buttP88.Name = "buttP88";
+            this.buttP88.Size = new System.Drawing.Size(123, 51);
+            this.buttP88.TabIndex = 3;
+            this.buttP88.Text = "P88";
+            this.buttP88.UseVisualStyleBackColor = true;
             // 
-            // button5
+            // buttSEDIGO
             // 
-            this.button5.Location = new System.Drawing.Point(135, 76);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(123, 51);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "SEDI-GO";
-            this.button5.UseVisualStyleBackColor = true;
+            this.buttSEDIGO.Location = new System.Drawing.Point(135, 76);
+            this.buttSEDIGO.Name = "buttSEDIGO";
+            this.buttSEDIGO.Size = new System.Drawing.Size(123, 51);
+            this.buttSEDIGO.TabIndex = 4;
+            this.buttSEDIGO.Text = "SEDI-GO";
+            this.buttSEDIGO.UseVisualStyleBackColor = true;
             // 
             // FormPrincipal
             // 
@@ -117,10 +118,10 @@ namespace Configuracao.Templates
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttSEDIGO;
+        private System.Windows.Forms.Button buttP88;
+        private System.Windows.Forms.Button buttLauncher;
+        private System.Windows.Forms.Button buttDADP;
+        private System.Windows.Forms.Button buttCIP;
     }
 }
