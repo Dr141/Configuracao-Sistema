@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Configuracao.Templates;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -17,10 +18,10 @@ namespace Configuracao
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            
-            if(File.Exists("P88.Console.exe"))
+
+            if (File.Exists("P88.Console.exe"))
                 Application.Run(new FormP88());
-            else if(File.Exists("CIP.Console.exe"))
+            else if (File.Exists("CIP.Console.exe"))
                 Application.Run(new FormCIP());
             else if (File.Exists("SeloDigital.GO.Console.exe"))
                 Application.Run(new FormSEDIGO());
@@ -28,6 +29,8 @@ namespace Configuracao
                 Application.Run(new FormDADP());
             else if (File.Exists("Launcher.Console.exe"))
                 Application.Run(new FormLauncher());
+            else
+                Application.Run(new FormPrincipal());
         }
     }
 }

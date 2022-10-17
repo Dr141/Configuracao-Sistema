@@ -78,6 +78,12 @@
     <Compile Include="Templates\FormDADP.Designer.cs">
       <DependentUpon>FormDADP.cs</DependentUpon>
     </Compile>
+    <Compile Include="Templates\FormPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Templates\FormPrincipal.Designer.cs">
+      <DependentUpon>FormPrincipal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Templates\FormSEDIGO.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Templates\FormDADP.resx">
       <DependentUpon>FormDADP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Templates\FormPrincipal.resx">
+      <DependentUpon>FormPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Templates\FormSEDIGO.resx">
       <DependentUpon>FormSEDIGO.cs</DependentUpon>
