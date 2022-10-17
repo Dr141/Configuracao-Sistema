@@ -7,7 +7,7 @@ using System.Xml.Linq;
 
 namespace Configuracao.IO
 {
-    public class ManipularXML: Cliptrografia
+    public class ManipularXML
     {
         public string caminhoArquivo { get; set; }
         public string _stringConexao { get; set; }
@@ -19,15 +19,7 @@ namespace Configuracao.IO
             try
             {
                 XElement XML = XElement.Load(nomeArquivo);
-                XML.Descendants("ConexaoBanco").First().LastAttribute.Value = CriptografarComplexa(oP88.ConexaoBanco);
-                XML.Descendants("UsuarioBanco").First().LastAttribute.Value = CriptografarComplexa(oP88.UsuarioBanco);
-                XML.Descendants("SenhaBanco").First().LastAttribute.Value = CriptografarComplexa(oP88.SenhaBanco);
-                XML.Descendants("UrlDeComunicacao").First().LastAttribute.Value = CriptografarComplexa(oP88.UrlDeComunicacao);
-                XML.Descendants("UsuarioSisCoaf").First().LastAttribute.Value = CriptografarComplexa(oP88.UsuarioSisCoaf);
-                XML.Descendants("SenhaSisCoaf").First().LastAttribute.Value = CriptografarComplexa(oP88.SenhaSisCoaf);
-                XML.Descendants("TipoDeConexao").First().LastAttribute.Value = CriptografarComplexa(oP88.TipoDeConexao);
-                XML.Descendants("AmbienteAtualizacao").First().LastAttribute.Value = CriptografarComplexa(oP88.AmbienteAtualizacao);
-                XML.Descendants("EnderecoServico").First().LastAttribute.Value = CriptografarComplexa(oP88.EnderecoSevico);
+                oP88.Atualizar(XML);
                 XML.Save(nomeArquivo);
                 MessageBox.Show("Configuração salva com sucesso.", "Provimento88", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -44,12 +36,7 @@ namespace Configuracao.IO
             try
             {
                 XElement XML = XElement.Load(nomeArquivo);
-                XML.Descendants("SqlHost").First().LastAttribute.Value = CriptografarComplexa(launcher.SqlHost);
-                XML.Descendants("SqlDatabase").First().LastAttribute.Value = CriptografarComplexa(launcher.SqlDatabase);
-                XML.Descendants("Usuario").First().LastAttribute.Value = CriptografarComplexa(launcher.Usuario);
-                XML.Descendants("Senha").First().LastAttribute.Value = CriptografarComplexa(launcher.Senha);
-                XML.Descendants("TipoSgbd").First().LastAttribute.Value = CriptografarComplexa(launcher.TipoSgbd);
-                XML.Descendants("AmbienteAtualizacao").First().LastAttribute.Value = CriptografarComplexa(launcher.AmbienteAtualizacao);
+                launcher.Atualizar(XML);
                 XML.Save(nomeArquivo);
                 MessageBox.Show("Configuração salva com sucesso.", "Launcher", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -66,13 +53,8 @@ namespace Configuracao.IO
             try
             {
                 XElement XML = XElement.Load(nomeArquivo);
-
-                XML.Descendants("AmbienteDeAtualizacao").First().LastAttribute.Value = CriptografarComplexa(cip.AmbienteDeAtualizacao);
-                XML.Descendants("SqlHost").First().LastAttribute.Value = CriptografarComplexa(cip.SqlHost);
-                XML.Descendants("SqlDataBase").First().LastAttribute.Value = CriptografarComplexa(cip.SqlDataBase);
-                XML.Descendants("Usuario").First().LastAttribute.Value = CriptografarComplexa(cip.Usuario);
-                XML.Descendants("Senha").First().LastAttribute.Value = CriptografarComplexa(cip.Senha);
-
+                cip.Atualizar(XML);                
+                XML.Save(nomeArquivo);
                 MessageBox.Show("Configuração salva com sucesso.", "CIP", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)

@@ -70,5 +70,14 @@ namespace Configuracao.Modelos
             Usuario = DecriptografarComplexa(XML.Descendants("Usuario").First().LastAttribute.Value);
             Senha = DecriptografarComplexa(XML.Descendants("Senha").First().LastAttribute.Value);
         }
+
+        public void Atualizar(XElement XML)
+        {
+            XML.Descendants("AmbienteDeAtualizacao").First().LastAttribute.Value = CriptografarComplexa(AmbienteDeAtualizacao);
+            XML.Descendants("SqlHost").First().LastAttribute.Value = CriptografarComplexa(SqlHost);
+            XML.Descendants("SqlDataBase").First().LastAttribute.Value = CriptografarComplexa(SqlDataBase);
+            XML.Descendants("Usuario").First().LastAttribute.Value = CriptografarComplexa(Usuario);
+            XML.Descendants("Senha").First().LastAttribute.Value = CriptografarComplexa(Senha);
+        }
     }
 }
