@@ -1,11 +1,13 @@
 ﻿using Configuracao.IO;
 using System;
 using System.IO;
+using System.Linq;
 using System.Xml;
+using System.Xml.Linq;
 
 namespace Configuracao.Modelos
 {
-    public class Provimento88
+    public class Provimento88 : Cliptrografia
     {
         public String ConexaoBanco { get; set; }
         public String UsuarioBanco { get; set; }
@@ -74,6 +76,19 @@ namespace Configuracao.Modelos
                                 "</configuration>"
                             );
             return xml;
+        }
+
+        public void Map(XElement XML)
+        {
+            ConexaoBanco = DecriptografarComplexa(XML.Descendants("ConexaoBanco").First().LastAttribute.Value);
+            UsuarioBanco = DecriptografarComplexa(XML.Descendants("UsuarioBanco").First().LastAttribute.Value);
+            SenhaBanco = DecriptografarComplexa(XML.Descendants("SenhaBanco").First().LastAttribute.Value);
+            UrlDeComunicacao = DecriptografarComplexa(XML.Descendants("UrlDeComunicacao").First().LastAttribute.Value);
+            UsuarioSisCoaf = DecriptografarComplexa(XML.Descendants("UsuarioSisCoaf").First().LastAttribute.Value);
+            SenhaSisCoaf = DecriptografarComplexa(XML.Descendants("SenhaSisCoaf").First().LastAttribute.Value);
+            TipoDeConexao = DecriptografarComplexa(XML.Descendants("TipoDeConexao").First().LastAttribute.Value);
+            AmbienteAtualizacao = DecriptografarComplexa(XML.Descendants("AmbienteAtualizacao").First().LastAttribute.Value);
+            EnderecoSevico = DecriptografarComplexa(XML.Descendants("EnderecoServico").First().LastAttribute.Value);
         }
     }
 }

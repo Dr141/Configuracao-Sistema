@@ -131,16 +131,7 @@ namespace Configuracao.IO
             try
             {
                 XElement XML = XElement.Load(nomeArquivo);
-
-                p88.ConexaoBanco = DecriptografarComplexa(XML.Descendants("ConexaoBanco").First().LastAttribute.Value);
-                p88.UsuarioBanco = DecriptografarComplexa(XML.Descendants("UsuarioBanco").First().LastAttribute.Value);
-                p88.SenhaBanco = DecriptografarComplexa(XML.Descendants("SenhaBanco").First().LastAttribute.Value);
-                p88.UrlDeComunicacao = DecriptografarComplexa(XML.Descendants("UrlDeComunicacao").First().LastAttribute.Value);
-                p88.UsuarioSisCoaf = DecriptografarComplexa(XML.Descendants("UsuarioSisCoaf").First().LastAttribute.Value);
-                p88.SenhaSisCoaf = DecriptografarComplexa(XML.Descendants("SenhaSisCoaf").First().LastAttribute.Value);
-                p88.TipoDeConexao = DecriptografarComplexa(XML.Descendants("TipoDeConexao").First().LastAttribute.Value);
-                p88.AmbienteAtualizacao = DecriptografarComplexa(XML.Descendants("AmbienteAtualizacao").First().LastAttribute.Value);
-                p88.EnderecoSevico = DecriptografarComplexa(XML.Descendants("EnderecoServico").First().LastAttribute.Value);
+                p88.Map(XML);                
             }
             catch (Exception ex)
             {
@@ -155,12 +146,7 @@ namespace Configuracao.IO
             try
             {
                 XElement XML = XElement.Load(nomeArquivo);
-
-                launcher.SqlHost = DecriptografarComplexa(XML.Descendants("SqlHost").First().LastAttribute.Value);
-                launcher.Usuario = DecriptografarComplexa(XML.Descendants("Usuario").First().LastAttribute.Value);
-                launcher.Senha = DecriptografarComplexa(XML.Descendants("Senha").First().LastAttribute.Value);
-                launcher.TipoSgbd = DecriptografarComplexa(XML.Descendants("TipoSgbd").First().LastAttribute.Value);
-                launcher.AmbienteAtualizacao = DecriptografarComplexa(XML.Descendants("AmbienteAtualizacao").First().LastAttribute.Value);
+                launcher.Map(XML);                
             }
             catch (Exception ex)
             {
@@ -175,12 +161,7 @@ namespace Configuracao.IO
             try
             {
                 XElement XML = XElement.Load(nomeArquivo);
-
-                cip.AmbienteDeAtualizacao = DecriptografarComplexa(XML.Descendants("AmbienteDeAtualizacao").First().LastAttribute.Value);
-                cip.SqlHost = DecriptografarComplexa(XML.Descendants("SqlHost").First().LastAttribute.Value);
-                cip.SqlDataBase = DecriptografarComplexa(XML.Descendants("SqlDataBase").First().LastAttribute.Value);
-                cip.Usuario = DecriptografarComplexa(XML.Descendants("Usuario").First().LastAttribute.Value);
-                cip.Senha = DecriptografarComplexa(XML.Descendants("Senha").First().LastAttribute.Value);
+                cip.Map(XML);
             }
             catch (Exception ex)
             {

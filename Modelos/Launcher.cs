@@ -1,10 +1,12 @@
 ﻿using Configuracao.IO;
 using System.IO;
+using System.Linq;
 using System.Xml;
+using System.Xml.Linq;
 
 namespace Configuracao.Modelos
 {
-    public class Launcher
+    public class Launcher : Cliptrografia
     {
         public string SqlHost { get; set; }
         public string SqlDatabase { get; set; }
@@ -65,6 +67,15 @@ namespace Configuracao.Modelos
                                 "</configuration>"
                             );
             return xml;
+        }
+
+        public void Map(XElement XML)
+        {
+            SqlHost = DecriptografarComplexa(XML.Descendants("SqlHost").First().LastAttribute.Value);
+            Usuario = DecriptografarComplexa(XML.Descendants("Usuario").First().LastAttribute.Value);
+            Senha = DecriptografarComplexa(XML.Descendants("Senha").First().LastAttribute.Value);
+            TipoSgbd = DecriptografarComplexa(XML.Descendants("TipoSgbd").First().LastAttribute.Value);
+            AmbienteAtualizacao = DecriptografarComplexa(XML.Descendants("AmbienteAtualizacao").First().LastAttribute.Value);
         }
     }
 }

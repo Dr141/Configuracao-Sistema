@@ -79,9 +79,9 @@ namespace Configuracao
             // 
             // tB_nomeDB
             // 
-            this.tB_nomeDB.Location = new System.Drawing.Point(326, 46);
+            this.tB_nomeDB.Location = new System.Drawing.Point(280, 46);
             this.tB_nomeDB.Name = "tB_nomeDB";
-            this.tB_nomeDB.Size = new System.Drawing.Size(83, 20);
+            this.tB_nomeDB.Size = new System.Drawing.Size(129, 20);
             this.tB_nomeDB.TabIndex = 3;
             // 
             // label4
@@ -89,9 +89,9 @@ namespace Configuracao
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(217, 49);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(88, 13);
+            this.label4.Size = new System.Drawing.Size(57, 13);
             this.label4.TabIndex = 11;
-            this.label4.Text = "Nome DataBase:";
+            this.label4.Text = "DataBase:";
             // 
             // cB_Atualizacao
             // 
@@ -135,10 +135,10 @@ namespace Configuracao
             // 
             // tB_Senha
             // 
-            this.tB_Senha.Location = new System.Drawing.Point(326, 75);
+            this.tB_Senha.Location = new System.Drawing.Point(280, 75);
             this.tB_Senha.Name = "tB_Senha";
             this.tB_Senha.PasswordChar = '*';
-            this.tB_Senha.Size = new System.Drawing.Size(83, 20);
+            this.tB_Senha.Size = new System.Drawing.Size(129, 20);
             this.tB_Senha.TabIndex = 5;
             // 
             // label3
