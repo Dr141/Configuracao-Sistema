@@ -90,5 +90,18 @@ namespace Configuracao.Modelos
             AmbienteAtualizacao = DecriptografarComplexa(XML.Descendants("AmbienteAtualizacao").First().LastAttribute.Value);
             EnderecoSevico = DecriptografarComplexa(XML.Descendants("EnderecoServico").First().LastAttribute.Value);
         }
+
+        public void Atualizar(XElement XML)
+        {
+            XML.Descendants("ConexaoBanco").First().LastAttribute.Value = CriptografarComplexa(ConexaoBanco);
+            XML.Descendants("UsuarioBanco").First().LastAttribute.Value = CriptografarComplexa(UsuarioBanco);
+            XML.Descendants("SenhaBanco").First().LastAttribute.Value = CriptografarComplexa(SenhaBanco);
+            XML.Descendants("UrlDeComunicacao").First().LastAttribute.Value = CriptografarComplexa(UrlDeComunicacao);
+            XML.Descendants("UsuarioSisCoaf").First().LastAttribute.Value = CriptografarComplexa(UsuarioSisCoaf);
+            XML.Descendants("SenhaSisCoaf").First().LastAttribute.Value = CriptografarComplexa(SenhaSisCoaf);
+            XML.Descendants("TipoDeConexao").First().LastAttribute.Value = CriptografarComplexa(TipoDeConexao);
+            XML.Descendants("AmbienteAtualizacao").First().LastAttribute.Value = CriptografarComplexa(AmbienteAtualizacao);
+            XML.Descendants("EnderecoServico").First().LastAttribute.Value = CriptografarComplexa(EnderecoSevico);
+        }
     }
 }

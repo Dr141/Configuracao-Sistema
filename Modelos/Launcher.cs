@@ -39,7 +39,7 @@ namespace Configuracao.Modelos
                                  "<Launcher>" +
                                  @" <!--
                                     Exemplo SqlDatabase:
-                                    Se tipo de SGBD = 0 => D:\Engegraph\DB\Launcher.sdf
+                                    Se tipo de SGBD = 0 => D:\Engegraph\DB\sdf
                                     Se tipo de SGBD = 1 => Launcher
                                     -->" +
                                  "<SqlHost value='Z6r0Smiwd9llDCMAi2xZdqguevaHISdTBbURXx8it5wOeQt0McTK35q9UNCO+KtmTX4lu9VwmrpvjfoQhST0UKR8i/heklJW7Frbz57IqTw='/>" +
@@ -76,6 +76,16 @@ namespace Configuracao.Modelos
             Senha = DecriptografarComplexa(XML.Descendants("Senha").First().LastAttribute.Value);
             TipoSgbd = DecriptografarComplexa(XML.Descendants("TipoSgbd").First().LastAttribute.Value);
             AmbienteAtualizacao = DecriptografarComplexa(XML.Descendants("AmbienteAtualizacao").First().LastAttribute.Value);
+        }
+
+        public void Atualizar(XElement XML)
+        {
+            XML.Descendants("SqlHost").First().LastAttribute.Value = CriptografarComplexa(SqlHost);
+            XML.Descendants("SqlDatabase").First().LastAttribute.Value = CriptografarComplexa(SqlDatabase);
+            XML.Descendants("Usuario").First().LastAttribute.Value = CriptografarComplexa(Usuario);
+            XML.Descendants("Senha").First().LastAttribute.Value = CriptografarComplexa(Senha);
+            XML.Descendants("TipoSgbd").First().LastAttribute.Value = CriptografarComplexa(TipoSgbd);
+            XML.Descendants("AmbienteAtualizacao").First().LastAttribute.Value = CriptografarComplexa(AmbienteAtualizacao);
         }
     }
 }
