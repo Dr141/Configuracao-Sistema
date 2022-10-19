@@ -63,6 +63,23 @@ namespace Configuracao.IO
             }
         }
 
+        public void GravarDados(SEDI_PA pA)
+        {
+            string nomeArquivo = @"Configuracoes.config";
+
+            try
+            {
+                XElement XML = XElement.Load(nomeArquivo);
+                pA.Atualizar(XML);
+                XML.Save(nomeArquivo);
+                MessageBox.Show("Configuração salva com sucesso.", "SEDI-PA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         public void GravarDados(SEDI_GO SEDI)
         {
             string nomeArquivo = @"SeloDigital.GO.Servico.dll.config";
@@ -144,6 +161,21 @@ namespace Configuracao.IO
             {
                 XElement XML = XElement.Load(nomeArquivo);
                 cip.Map(XML);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+        }
+
+        public void GetDados(SEDI_PA pA)
+        {
+            string nomeArquivo = @"Configuracoes.config";
+
+            try
+            {
+                XElement XML = XElement.Load(nomeArquivo);
+                pA.Map(XML);
             }
             catch (Exception ex)
             {

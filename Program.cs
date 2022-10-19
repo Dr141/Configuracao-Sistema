@@ -29,6 +29,8 @@ namespace Configuracao
                 Application.Run(new FormDADP());
             else if (File.Exists("Launcher.Console.exe"))
                 Application.Run(new FormLauncher());
+            else if (File.Exists("SeloDigital.PA.Console.exe"))
+                Application.Run(new FormSEDIPA());
             else
                 Application.Run(new FormPrincipal());
         }
