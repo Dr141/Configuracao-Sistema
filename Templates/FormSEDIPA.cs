@@ -25,7 +25,7 @@ namespace Configuracao.Templates
             ler.GetDados(PA);
 
             tB_StrConexao.Text = PA.ConexaoBanco;
-            cB_TipoConexao.SelectedIndex = validacao(PA.TipoDeConexao);
+            cB_TipoConexao.SelectedIndex = int.Parse(PA.TipoDeConexao);
             cB_Atualizacao.SelectedIndex = ler.AmbAtualizacao(PA.AmbienteAtualizacao);
             tB_Usuario.Text = PA.UsuarioBanco;
             tB_Senha.Text = PA.SenhaBanco;
@@ -67,7 +67,7 @@ namespace Configuracao.Templates
             DialogResult dr = MessageBox.Show("Deseja salvar a configuração?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             PA.ConexaoBanco = tB_StrConexao.Text;
-            PA.TipoDeConexao = validacao(cB_TipoConexao.SelectedIndex);
+            PA.TipoDeConexao = cB_TipoConexao.SelectedIndex.ToString();
             PA.AmbienteAtualizacao = cB_Atualizacao.Text;
             PA.UsuarioBanco = tB_Usuario.Text;
             PA.SenhaBanco = tB_Senha.Text;
