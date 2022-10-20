@@ -143,7 +143,7 @@ namespace Configuracao.Modelos
             {
                 appSettings.Settings["AmbienteAtualizacao"].Value = CriptografarNormal(AmbienteAtualizacao);
             }
-            else
+            else if(AmbienteAtualizacao != null)
             {
                 KeyValueConfigurationElement keyValue = new KeyValueConfigurationElement("AmbienteAtualizacao", CriptografarNormal(AmbienteAtualizacao));
                 appSettings.Settings.Add(keyValue);
