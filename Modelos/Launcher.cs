@@ -6,7 +6,7 @@ using System.Xml.Linq;
 
 namespace Configuracao.Modelos
 {
-    public class Launcher : Cliptrografia
+    public class Launcher : Criptografia
     {
         public string SqlHost { get; set; }
         public string SqlDatabase { get; set; }

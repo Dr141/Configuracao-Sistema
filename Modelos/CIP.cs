@@ -6,7 +6,7 @@ using System.Xml.Linq;
 
 namespace Configuracao.Modelos
 {
-    public class CIP : Cliptrografia
+    public class CIP : Criptografia
     {
         public string SqlHost { get; set; }
         public string SqlDataBase { get; set; }

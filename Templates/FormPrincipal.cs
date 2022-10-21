@@ -1,13 +1,10 @@
-﻿using Configuracao.IO;
-using Configuracao.Modelos;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 
 namespace Configuracao.Templates
 {
     public partial class FormPrincipal : Form
     {
         private string caminhoArquivo { get; set; }
-        public ManipularXML ler = new ManipularXML();
 
         public FormPrincipal()
         {
@@ -17,8 +14,10 @@ namespace Configuracao.Templates
         private void buttCIP_MouseClick(object sender, MouseEventArgs e)
         {
             SelecionarArquivo();
-            CIP cip = new CIP();
-            ler.GetDados(cip, caminhoArquivo);
+            FormCIP formCIP = new FormCIP(caminhoArquivo);
+            this.Hide();
+            formCIP.ShowDialog();
+            Dispose();
         }
 
         private void SelecionarArquivo()
@@ -42,7 +41,11 @@ namespace Configuracao.Templates
 
         private void buttDADP_MouseClick(object sender, MouseEventArgs e)
         {
-            SelecionarArquivo();            
+            SelecionarArquivo();
+            FormDADP formDADP = new FormDADP(caminhoArquivo);
+            this.Hide();
+            formDADP.ShowDialog();
+            Dispose();
         }
 
         private void buttLauncher_MouseClick(object sender, MouseEventArgs e)

@@ -5,7 +5,7 @@ using System.Xml;
 
 namespace Configuracao.Modelos
 {
-    public class DADP : Cliptrografia
+    public class DADP : Criptografia
     {
         public string ConexaoBanco { get; set; }
         public string UsuarioBanco { get; set; }
@@ -27,12 +27,12 @@ namespace Configuracao.Modelos
         {
             ConfiguracaoInicial config = new ConfiguracaoInicial();
 
-            if (!File.Exists("Dadp.Servidor.dll.config"))
+            if (!File.Exists("Dadp.Servidor.dll.config") && Directory.Exists(@"Servidor"))
             {
                 config.ConfiguracaoServidor(ConfigPadraoServidor(), "Dadp.Servidor.dll.config");
             }
 
-            if (!File.Exists(@"..\Cliente\Dadp.Cliente.dll.config"))
+            if (!File.Exists(@"..\Cliente\Dadp.Cliente.dll.config") && Directory.Exists(@"..\Cliente"))
             {
                 config.ConfiguracaoCliente(ConfigPadraoCliente(), @"..\Cliente\Dadp.Cliente.dll.config");
             }

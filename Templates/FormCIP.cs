@@ -17,8 +17,11 @@ namespace Configuracao
         public ManipularXML ler = new ManipularXML();
         public CIP cip = new CIP();
 
-        public FormCIP()
+        public FormCIP(string caminho = null)
         {
+            if (caminho != null)
+                ler.caminhoArquivo = caminho;
+
             InitializeComponent();
         }
 
@@ -29,7 +32,10 @@ namespace Configuracao
 
         public void CarregarInformacoes()
         {
-            ler.GetDados(cip);
+            if (ler.caminhoArquivo == null)
+                ler.GetDados(cip);
+            else
+                ler.GetDados(cip, ler.caminhoArquivo);
             this.cB_TipoConexao.SelectedIndex = 0;
             this.cB_Atualizacao.SelectedIndex = ler.AmbAtualizacao(cip.AmbienteDeAtualizacao);
             this.tB_StrConexao.Text = cip.SqlHost;
@@ -64,7 +70,10 @@ namespace Configuracao
             cip.AmbienteDeAtualizacao = this.cB_Atualizacao.Text;
 
             if (dr == DialogResult.Yes)
-                ler.GravarDados(cip);
+                if (ler.caminhoArquivo == null)
+                    ler.GravarDados(cip);
+                else
+                    ler.GravarDados(cip, ler.caminhoArquivo);
         }
 
         private void button3_Click(object sender, EventArgs e)
