@@ -31,16 +31,19 @@ namespace Configuracao.Templates
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.buttCIP = new System.Windows.Forms.Button();
-            this.buttDADP = new System.Windows.Forms.Button();
-            this.buttLauncher = new System.Windows.Forms.Button();
-            this.buttP88 = new System.Windows.Forms.Button();
             this.buttSEDIGO = new System.Windows.Forms.Button();
+            this.buttP88 = new System.Windows.Forms.Button();
+            this.buttLauncher = new System.Windows.Forms.Button();
+            this.buttDADP = new System.Windows.Forms.Button();
+            this.buttCIP = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.buttSEDIGO);
             this.groupBox1.Controls.Add(this.buttP88);
             this.groupBox1.Controls.Add(this.buttLauncher);
@@ -52,6 +55,46 @@ namespace Configuracao.Templates
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
+            // buttSEDIGO
+            // 
+            this.buttSEDIGO.Location = new System.Drawing.Point(135, 76);
+            this.buttSEDIGO.Name = "buttSEDIGO";
+            this.buttSEDIGO.Size = new System.Drawing.Size(123, 51);
+            this.buttSEDIGO.TabIndex = 4;
+            this.buttSEDIGO.Text = "SEDI-GO";
+            this.buttSEDIGO.UseVisualStyleBackColor = true;
+            this.buttSEDIGO.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttSEDIGO_MouseClick);
+            // 
+            // buttP88
+            // 
+            this.buttP88.Location = new System.Drawing.Point(6, 76);
+            this.buttP88.Name = "buttP88";
+            this.buttP88.Size = new System.Drawing.Size(123, 51);
+            this.buttP88.TabIndex = 3;
+            this.buttP88.Text = "P88";
+            this.buttP88.UseVisualStyleBackColor = true;
+            this.buttP88.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttP88_MouseClick);
+            // 
+            // buttLauncher
+            // 
+            this.buttLauncher.Location = new System.Drawing.Point(264, 19);
+            this.buttLauncher.Name = "buttLauncher";
+            this.buttLauncher.Size = new System.Drawing.Size(123, 51);
+            this.buttLauncher.TabIndex = 2;
+            this.buttLauncher.Text = "Launcher";
+            this.buttLauncher.UseVisualStyleBackColor = true;
+            this.buttLauncher.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttLauncher_MouseClick);
+            // 
+            // buttDADP
+            // 
+            this.buttDADP.Location = new System.Drawing.Point(135, 19);
+            this.buttDADP.Name = "buttDADP";
+            this.buttDADP.Size = new System.Drawing.Size(123, 51);
+            this.buttDADP.TabIndex = 1;
+            this.buttDADP.Text = "DADP";
+            this.buttDADP.UseVisualStyleBackColor = true;
+            this.buttDADP.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttDADP_MouseClick);
+            // 
             // buttCIP
             // 
             this.buttCIP.Location = new System.Drawing.Point(6, 19);
@@ -62,41 +105,19 @@ namespace Configuracao.Templates
             this.buttCIP.UseVisualStyleBackColor = true;
             this.buttCIP.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttCIP_MouseClick);
             // 
-            // buttDADP
+            // button1
             // 
-            this.buttDADP.Location = new System.Drawing.Point(135, 19);
-            this.buttDADP.Name = "buttDADP";
-            this.buttDADP.Size = new System.Drawing.Size(123, 51);
-            this.buttDADP.TabIndex = 1;
-            this.buttDADP.Text = "DADP";
-            this.buttDADP.UseVisualStyleBackColor = true;
+            this.button1.Location = new System.Drawing.Point(264, 76);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(123, 51);
+            this.button1.TabIndex = 5;
+            this.button1.Text = "SEDI-PA";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.button1_MouseClick);
             // 
-            // buttLauncher
+            // openFileDialog
             // 
-            this.buttLauncher.Location = new System.Drawing.Point(264, 19);
-            this.buttLauncher.Name = "buttLauncher";
-            this.buttLauncher.Size = new System.Drawing.Size(123, 51);
-            this.buttLauncher.TabIndex = 2;
-            this.buttLauncher.Text = "Launcher";
-            this.buttLauncher.UseVisualStyleBackColor = true;
-            // 
-            // buttP88
-            // 
-            this.buttP88.Location = new System.Drawing.Point(6, 76);
-            this.buttP88.Name = "buttP88";
-            this.buttP88.Size = new System.Drawing.Size(123, 51);
-            this.buttP88.TabIndex = 3;
-            this.buttP88.Text = "P88";
-            this.buttP88.UseVisualStyleBackColor = true;
-            // 
-            // buttSEDIGO
-            // 
-            this.buttSEDIGO.Location = new System.Drawing.Point(135, 76);
-            this.buttSEDIGO.Name = "buttSEDIGO";
-            this.buttSEDIGO.Size = new System.Drawing.Size(123, 51);
-            this.buttSEDIGO.TabIndex = 4;
-            this.buttSEDIGO.Text = "SEDI-GO";
-            this.buttSEDIGO.UseVisualStyleBackColor = true;
+            this.openFileDialog.FileName = "openFileDialog";
             // 
             // FormPrincipal
             // 
@@ -123,5 +144,7 @@ namespace Configuracao.Templates
         private System.Windows.Forms.Button buttLauncher;
         private System.Windows.Forms.Button buttDADP;
         private System.Windows.Forms.Button buttCIP;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
     }
 }

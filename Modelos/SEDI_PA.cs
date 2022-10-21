@@ -6,7 +6,7 @@ using System.Xml.Linq;
 
 namespace Configuracao.Modelos
 {
-    public class SEDI_PA : Cliptrografia
+    public class SEDI_PA : Criptografia
     {
         public string ConexaoBanco { get; set; }
         public string UsuarioBanco { get; set; }

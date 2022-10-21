@@ -1,13 +1,6 @@
 ﻿using Configuracao.IO;
 using Configuracao.Modelos;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Configuracao
@@ -16,14 +9,21 @@ namespace Configuracao
     {
         DADP dadp = new DADP();
         ManipularXML ler = new ManipularXML();
-        public FormDADP()
+        public FormDADP(string caminho = null)
         {
+            if (caminho != null)
+                ler.caminhoArquivo = caminho;
+
             InitializeComponent();
         }
 
         private void FormDADP_Load(object sender, EventArgs e)
         {
-            ler.GetDados(dadp);
+            if (ler.caminhoArquivo == null)
+                ler.GetDados(dadp);
+            else
+                ler.GetDados(dadp, ler.caminhoArquivo);
+
             this.HabilitarCodNascional();
             this.HabilitarPorta();
             this.CarregarInformacao();
@@ -109,7 +109,10 @@ namespace Configuracao
             DialogResult dr = MessageBox.Show("Deseja salvar a configuração?", "Atenção", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (dr == DialogResult.Yes)
-                ler.GravarDados(dadp);
+                if (ler.caminhoArquivo == null)
+                    ler.GravarDados(dadp);
+                else
+                    ler.GravarDados(dadp, ler.caminhoArquivo);
         }
 
         private void bttLimpar_Click(object sender, EventArgs e)

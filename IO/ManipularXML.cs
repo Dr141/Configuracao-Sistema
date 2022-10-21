@@ -12,10 +12,8 @@ namespace Configuracao.IO
         public string caminhoArquivo { get; set; }
         public string _stringConexao { get; set; }
 
-        public void GravarDados(Provimento88 oP88)
+        public void GravarDados(Provimento88 oP88, string nomeArquivo = @"Configuracoes.config")
         {
-            string nomeArquivo = @"Configuracoes.config";
-
             try
             {
                 XElement XML = XElement.Load(nomeArquivo);
@@ -29,10 +27,8 @@ namespace Configuracao.IO
             }
         }
 
-        public void GravarDados(Launcher launcher)
-        {
-            string nomeArquivo = @"Configuracoes.config";
-
+        public void GravarDados(Launcher launcher, string nomeArquivo = @"Configuracoes.config")
+        {           
             try
             {
                 XElement XML = XElement.Load(nomeArquivo);
@@ -46,10 +42,8 @@ namespace Configuracao.IO
             }
         }
 
-        public void GravarDados(CIP cip)
-        {
-            string nomeArquivo = @"Configuracoes.config";
-
+        public void GravarDados(CIP cip, string nomeArquivo = @"Configuracoes.config")
+        {    
             try
             {
                 XElement XML = XElement.Load(nomeArquivo);
@@ -63,10 +57,8 @@ namespace Configuracao.IO
             }
         }
 
-        public void GravarDados(SEDI_PA pA)
-        {
-            string nomeArquivo = @"Configuracoes.config";
-
+        public void GravarDados(SEDI_PA pA, string nomeArquivo = @"Configuracoes.config")
+        { 
             try
             {
                 XElement XML = XElement.Load(nomeArquivo);
@@ -80,10 +72,8 @@ namespace Configuracao.IO
             }
         }
 
-        public void GravarDados(SEDI_GO SEDI)
+        public void GravarDados(SEDI_GO SEDI, string nomeArquivo = @"SeloDigital.GO.Servico.dll.config")
         {
-            string nomeArquivo = @"SeloDigital.GO.Servico.dll.config";
-
             try
             {
                 ExeConfigurationFileMap customConfigFileMap = new ExeConfigurationFileMap();
@@ -102,10 +92,8 @@ namespace Configuracao.IO
             }
         }
 
-        public void GravarDados(DADP dadp)
+        public void GravarDados(DADP dadp, string nomeArquivo = @"Dadp.Servidor.dll.config")
         {
-            string nomeArquivo = @"Dadp.Servidor.dll.config";
-
             try
             {
                 ExeConfigurationFileMap customConfigFileMap = new ExeConfigurationFileMap();
@@ -123,10 +111,8 @@ namespace Configuracao.IO
             }
         }
 
-        public void GetDados(Provimento88 p88)
+        public void GetDados(Provimento88 p88, string nomeArquivo = @"Configuracoes.config")
         {
-            string nomeArquivo = @"Configuracoes.config";
-
             try
             {
                 XElement XML = XElement.Load(nomeArquivo);
@@ -138,10 +124,8 @@ namespace Configuracao.IO
             }
         }
 
-        public void GetDados(Launcher launcher)
-        {
-            string nomeArquivo = @"Configuracoes.config";
-
+        public void GetDados(Launcher launcher, string nomeArquivo = @"Configuracoes.config")
+        {           
             try
             {
                 XElement XML = XElement.Load(nomeArquivo);
@@ -153,10 +137,8 @@ namespace Configuracao.IO
             }
         }
 
-        public void GetDados(CIP cip)
+        public void GetDados(CIP cip, string nomeArquivo = @"Configuracoes.config")
         {
-            string nomeArquivo = @"Configuracoes.config";
-
             try
             {
                 XElement XML = XElement.Load(nomeArquivo);
@@ -168,10 +150,8 @@ namespace Configuracao.IO
             }
         }
 
-        public void GetDados(SEDI_PA pA)
+        public void GetDados(SEDI_PA pA, string nomeArquivo = @"Configuracoes.config")
         {
-            string nomeArquivo = @"Configuracoes.config";
-
             try
             {
                 XElement XML = XElement.Load(nomeArquivo);
@@ -183,10 +163,8 @@ namespace Configuracao.IO
             }
         }
 
-        public void GetDados(SEDI_GO SEDI)
+        public void GetDados(SEDI_GO SEDI, string nomeArquivo = @"SeloDigital.GO.Servico.dll.config")
         {
-            string nomeArquivo = @"SeloDigital.GO.Servico.dll.config";
-
             try
             {
                 ExeConfigurationFileMap customConfigFileMap = new ExeConfigurationFileMap();
@@ -202,10 +180,8 @@ namespace Configuracao.IO
             }
         }
 
-        public void GetDados(DADP dadp)
-        {
-            string nomeArquivo = @"Dadp.Servidor.dll.config";
-
+        public void GetDados(DADP dadp, string nomeArquivo = @"Dadp.Servidor.dll.config")
+        {           
             try
             {
                 ExeConfigurationFileMap customConfigFileMap = new ExeConfigurationFileMap();

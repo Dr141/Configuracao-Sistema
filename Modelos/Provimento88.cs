@@ -7,7 +7,7 @@ using System.Xml.Linq;
 
 namespace Configuracao.Modelos
 {
-    public class Provimento88 : Cliptrografia
+    public class Provimento88 : Criptografia
     {
         public String ConexaoBanco { get; set; }
         public String UsuarioBanco { get; set; }
