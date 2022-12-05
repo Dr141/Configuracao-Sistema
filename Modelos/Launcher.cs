@@ -19,12 +19,12 @@ namespace Configuracao.Modelos
         {
             ConfiguracaoInicial config = new ConfiguracaoInicial();
 
-            if (!File.Exists("Configuracoes.config"))
+            if (!File.Exists("Configuracoes.config") && Directory.Exists(@"Servidor"))
             {
                 config.ConfiguracaoServidor(ConfigPadraoServidor(), "Configuracoes.config");
             }
 
-            if (!File.Exists(@"..\Cliente\Configuracoes.config"))
+            if (!File.Exists(@"..\Cliente\Configuracoes.config") && Directory.Exists(@"..\Cliente"))
             {
                 config.ConfiguracaoCliente(ConfigPadraoCliente(), @"..\Cliente\Configuracoes.config");
             }

@@ -24,12 +24,12 @@ namespace Configuracao.Modelos
         {
             ConfiguracaoInicial config = new ConfiguracaoInicial();
 
-            if (!File.Exists("SeloDigital.GO.Servico.dll.config"))
+            if (!File.Exists("SeloDigital.GO.Servico.dll.config") && Directory.Exists(@"Servidor"))
             {
                 config.ConfiguracaoServidor(ConfigPadraoServidor(), "SeloDigital.GO.Servico.dll.config");
             }
 
-            if (!File.Exists(@"..\Cliente\SeloDigital.Go.Cliente.dll.config"))
+            if (!File.Exists(@"..\Cliente\SeloDigital.Go.Cliente.dll.config") && Directory.Exists(@"..\Cliente"))
             {
                 config.ConfiguracaoCliente(ConfigPadraoCliente(), @"..\Cliente\SeloDigital.Go.Cliente.dll.config");
             }
