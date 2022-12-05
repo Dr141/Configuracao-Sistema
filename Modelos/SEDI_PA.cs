@@ -61,7 +61,7 @@ namespace Configuracao.Modelos
                                 "<SenhaBanco value='0E050717350A1407350A1F3B'/>" +
                                 "<TipoDeConexao value='57'/>" +
                                 "<AmbienteProducao value='03001411'/>" +
-                                "<AmbienteAtualizacao value='0914051036000139'/>" +
+                                "<AmbienteDeAtualizacao value='0914051036000139'/>" +
                                 "<AmbienteProducaoTJPA value='03001411'/>" +
                                 "<Token value='02135201310A1151144F1E4A433B10B0165E054AE54353E8BFEF4841BBA4E7B30BEDB8BC'/>" +
                                 "<CaminhoArquivoXml value='3A392B3D0E2E230511081318071A1BEF11203C0EE40310EFE1EF112DDEABC6'/>" +
@@ -74,7 +74,7 @@ namespace Configuracao.Modelos
 
         public void Map(XElement XML)
         {
-            AmbienteAtualizacao = DecriptografarNormal(XML.Descendants("AmbienteAtualizacao").First().LastAttribute.Value);
+            AmbienteAtualizacao = DecriptografarNormal(XML.Descendants("AmbienteDeAtualizacao").First().LastAttribute.Value);
             ConexaoBanco = DecriptografarNormal(XML.Descendants("ConexaoBanco").First().LastAttribute.Value);
             UsuarioBanco = DecriptografarNormal(XML.Descendants("UsuarioBanco").First().LastAttribute.Value);
             SenhaBanco = DecriptografarNormal(XML.Descendants("SenhaBanco").First().LastAttribute.Value);
@@ -88,7 +88,7 @@ namespace Configuracao.Modelos
 
         public void Atualizar(XElement XML)
         {
-            XML.Descendants("AmbienteAtualizacao").First().LastAttribute.Value = CriptografarNormal(AmbienteAtualizacao);
+            XML.Descendants("AmbienteDeAtualizacao").First().LastAttribute.Value = CriptografarNormal(AmbienteAtualizacao);
             XML.Descendants("ConexaoBanco").First().LastAttribute.Value = CriptografarNormal(ConexaoBanco);
             XML.Descendants("UsuarioBanco").First().LastAttribute.Value = CriptografarNormal(UsuarioBanco);
             XML.Descendants("SenhaBanco").First().LastAttribute.Value = CriptografarNormal(SenhaBanco);
